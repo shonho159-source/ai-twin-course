@@ -6,80 +6,73 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:transparent}
-body{width:1500px;height:980px;font-family:Rubik,sans-serif;position:relative;overflow:hidden}
-.stage{position:absolute;inset:0;perspective:2200px}
-/* laptop */
-.lap{position:absolute;left:330px;top:70px;width:900px;transform:rotateY(-12deg) rotateX(3deg);transform-origin:50% 100%}
-.lid{background:linear-gradient(160deg,#2b2a3a,#121120);border-radius:30px 30px 10px 10px;padding:16px;box-shadow:0 40px 80px rgba(0,0,0,.55),inset 0 0 0 1.5px rgba(255,255,255,.08)}
-.scr{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#0B0920;display:flex;flex-direction:column;color:#C9C4F2}
-.bar{display:flex;align-items:center;gap:14px;padding:16px 22px;background:#110E33;border-bottom:1px solid #2E2875}
-.bar b{font-weight:900;font-size:26px;color:#C6FF3D;letter-spacing:-.01em}
-.bar span{font-size:14px;color:#8F88C9;margin-inline-start:auto;direction:ltr}
-.bar .pr{width:160px;height:8px;border-radius:9px;background:#2E2875;overflow:hidden}
-.bar .pr i{display:block;height:100%;width:46%;background:#C6FF3D}
-.main{flex:1;display:grid;grid-template-columns:1.8fr 1fr;gap:16px;padding:16px;min-height:0}
-.vid{position:relative;border-radius:12px;overflow:hidden;background:#000;isolation:isolate}
-.vid::before{content:"";position:absolute;inset:-12%;z-index:-1;background:url(../../assets/video/peleg-face-clean.jpg) center/cover;filter:blur(18px) brightness(.45)}
-.vid img{width:100%;height:100%;object-fit:contain;display:block}
-.play{position:absolute;left:50%;top:46%;width:78px;height:78px;margin:-39px 0 0 -39px;border-radius:50%;background:#C6FF3D;box-shadow:0 0 0 14px rgba(198,255,61,.22)}
-.play::after{content:"";position:absolute;left:31px;top:23px;border-left:26px solid #0E0B2B;border-top:16px solid transparent;border-bottom:16px solid transparent}
-.cap{position:absolute;right:14px;left:14px;bottom:14px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,5,28,.86);padding:10px 14px;border-radius:10px;color:#fff;font-weight:700;font-size:17px}
-.cap small{color:#C6FF3D;font-weight:500;font-size:14px;direction:ltr}
-.side{display:flex;flex-direction:column;gap:9px}
-.side h4{font-size:14px;color:#8F88C9;font-weight:500;margin-bottom:2px}
-.side li{list-style:none;display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;background:#17134A;border:1px solid #2E2875;font-size:15px;line-height:1.2}
-.side li::before{content:"";flex:none;width:16px;height:16px;border-radius:5px;border:2px solid #3B3392}
-.side li.d::before{background:#C6FF3D;border-color:#C6FF3D}
-.side li.n{border-color:#C6FF3D;color:#fff;font-weight:700;background:#221C66}
-.base{position:relative;height:26px;margin:0 -70px;background:linear-gradient(#3a3950,#17162a);border-radius:2px 2px 26px 26px;box-shadow:0 30px 40px rgba(0,0,0,.5)}
-.base::after{content:"";position:absolute;left:50%;top:0;width:150px;height:9px;margin-left:-75px;background:#0d0c1a;border-radius:0 0 10px 10px}
-/* phone */
-.ph{position:absolute;left:150px;top:330px;width:290px;aspect-ratio:9/19.3;border-radius:46px;padding:12px;background:linear-gradient(160deg,#34334a,#0d0c1a);box-shadow:0 40px 70px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.1);transform:rotate(-7deg)}
-.ph-s{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#000 url(../../assets/video/peleg-double-hero-poster.jpg) center/cover}
-.ph-s::before{content:"";position:absolute;top:12px;left:50%;width:92px;height:26px;margin-left:-46px;border-radius:99px;background:#000}
-/* bonus cards */
-.bon{position:absolute;right:40px;top:300px;display:flex;flex-direction:column;gap:14px;width:330px}
-.bc{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;background:#F4F1FF;color:#0E0B2B;box-shadow:0 24px 40px rgba(0,0,0,.45)}
-.bc:nth-child(2){transform:translateX(-26px)}
-.bc:nth-child(3){transform:translateX(-52px)}
-.bc .e{flex:none;width:52px;height:52px;display:grid;place-items:center;font-size:28px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 2px #E4DEFF}
-.bc b{display:block;font-weight:900;font-size:19px;line-height:1.2}
-.bc span{font-size:14px;color:#5B5296}
+body{width:1600px;height:900px;font-family:Rubik,sans-serif;position:relative;overflow:hidden;color:#fff}
+/* laptop, flat, front-on */
+.lap{position:absolute;left:300px;top:90px;width:1000px}
+.lid{background:#16152a;border-radius:26px 26px 8px 8px;padding:14px;box-shadow:0 50px 90px rgba(0,0,0,.55),inset 0 0 0 1.5px rgba(255,255,255,.09)}
+.scr{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#0B0920;display:grid;grid-template-columns:1fr 300px}
+.player{position:relative;background:#000;display:flex;flex-direction:column}
+.player img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.pbar{height:5px;background:#2E2875}
+.pbar i{display:block;height:100%;width:38%;background:#C6FF3D;margin-inline-start:auto}
+.pmeta{flex:1;padding:16px 20px;background:#0E0B2B}
+.pmeta small{color:#C6FF3D;font-weight:700;font-size:15px}
+.pmeta b{display:block;font-size:24px;font-weight:900;margin-top:4px}
+.pmeta span{display:block;margin-top:6px;color:#9C95D8;font-size:15px}
+.side{background:#110E33;border-right:1px solid #2E2875;padding:16px 14px;display:flex;flex-direction:column;gap:8px}
+.side h4{font-size:15px;font-weight:900;margin-bottom:4px;display:flex;justify-content:space-between}
+.side h4 em{font-style:normal;color:#C6FF3D}
+.ls{display:flex;align-items:center;gap:9px;padding:8px 9px;border-radius:9px;background:#17134A;border:1px solid #2E2875;font-size:13.5px;line-height:1.2}
+.ls i{flex:none;width:20px;height:20px;border-radius:6px;border:2px solid #3B3392;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:900}
+.ls.d i{background:#C6FF3D;border-color:#C6FF3D;color:#0E0B2B}
+.ls.n{border-color:#C6FF3D;background:#221C66;font-weight:700}
+.ls.lock{opacity:.45}
+.more{margin-top:auto;text-align:center;font-size:13px;color:#9C95D8;padding:8px;border:1px dashed #3B3392;border-radius:9px}
+.base{position:relative;height:22px;margin:0 -60px;background:linear-gradient(#34334a,#151426);border-radius:2px 2px 22px 22px;box-shadow:0 30px 40px rgba(0,0,0,.45)}
+.base::after{content:"";position:absolute;left:50%;top:0;width:140px;height:8px;margin-left:-70px;background:#0d0c1a;border-radius:0 0 9px 9px}
+/* phone, same row, overlapping the laptop's left edge */
+.ph{position:absolute;left:150px;top:250px;width:270px;aspect-ratio:9/19.3;border-radius:44px;padding:11px;background:#16152a;box-shadow:0 44px 80px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.1)}
+.ph-s{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:#000 url(../../assets/course/proof/reel-eilat-ad.jpg) center 30%/cover}
+.ph-s::before{content:"";position:absolute;top:11px;left:50%;width:86px;height:24px;margin-left:-43px;border-radius:99px;background:#000}
+/* small bonus chips on the right */
+.bon{position:absolute;right:70px;top:270px;display:flex;flex-direction:column;gap:12px;width:250px}
+.bc{display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:14px;background:#F4F1FF;color:#0E0B2B;box-shadow:0 18px 34px rgba(0,0,0,.42)}
+.bc .e{flex:none;width:38px;height:38px;display:grid;place-items:center;font-size:21px;border-radius:11px;background:#fff;box-shadow:inset 0 0 0 1.5px #E4DEFF}
+.bc b{display:block;font-weight:900;font-size:15px;line-height:1.2}
+.bc span{font-size:12px;color:#5B5296}
 .bc.lime{background:#C6FF3D}
 .bc.lime span{color:#2E3A07}
-/* seal */
-.seal{position:absolute;right:250px;top:120px;width:150px;height:150px;border-radius:50%;background:#C6FF3D;color:#0E0B2B;display:grid;place-items:center;text-align:center;transform:rotate(10deg);box-shadow:0 20px 40px rgba(0,0,0,.45),inset 0 0 0 6px #0E0B2B,inset 0 0 0 9px #C6FF3D,inset 0 0 0 11px #0E0B2B}
-.seal b{display:block;font-size:46px;font-weight:900;line-height:.9}
-.seal span{font-size:16px;font-weight:700;line-height:1.1}
+.tag{position:absolute;right:120px;top:205px;padding:9px 16px;border-radius:999px;background:#C6FF3D;color:#0E0B2B;font-weight:900;font-size:18px;box-shadow:0 14px 30px rgba(0,0,0,.4)}
 </style>
 </head>
 <body>
-<div class="stage">
   <div class="lap">
     <div class="lid"><div class="scr">
-      <div class="bar"><b>סוכן כפול</b><span class="pr"><i></i></span><span>AI Agent School</span></div>
-      <div class="main">
-        <div class="vid"><img src="../../assets/video/peleg-face-clean.jpg" alt=""><span class="play"></span><div class="cap">בונים את הפנים והקול<small>04:12 / 11:30</small></div></div>
-        <ul class="side">
-          <h4>השיעורים שלך</h4>
-          <li class="d">מתקינים את המערכת</li>
-          <li class="d">המוח של הכפיל</li>
-          <li class="n">הפנים והקול</li>
-          <li>חדר העריכה</li>
-          <li>מכונת הרעיונות</li>
-          <li>שגרת התוכן השבועית</li>
-        </ul>
+      <div class="player">
+        <img src="../../assets/mockup/lesson-frame.jpg" alt="">
+        <div class="pbar"><i></i></div>
+        <div class="pmeta"><small>שיעור 1 מתוך 14</small><b>ברוכים הבאים לסוכן כפול</b><span>ככה יוצרים תוכן בלי לעמוד מול המצלמה</span></div>
+      </div>
+      <div class="side">
+        <h4>סוכן כפול <em>14 שיעורים</em></h4>
+        <div class="ls n"><i>1</i>ברוכים הבאים לסוכן כפול</div>
+        <div class="ls"><i>2</i>האנטומיה של ריל שעובד</div>
+        <div class="ls"><i>3</i>המילון: הכלים שנעבוד איתם</div>
+        <div class="ls"><i>4</i>כמה זה עולה באמת</div>
+        <div class="ls lock"><i>5</i>מתקינים קלוד קוד</div>
+        <div class="ls lock"><i>6</i>מוצאים נושא שעוצר גלילה</div>
+        <div class="more">ועוד 8 שיעורים</div>
       </div>
     </div></div>
     <div class="base"></div>
   </div>
   <div class="ph"><div class="ph-s"></div></div>
-  <div class="seal"><div><b>6</b><span>בונוסים<br>בפנים</span></div></div>
+  <span class="tag">+ 6 בונוסים</span>
   <div class="bon">
-    <div class="bc"><span class="e">⚙️</span><div><b>הסקילים של סוכן כפול</b><span>SKILL.md מוכנים לקלוד קוד</span></div></div>
+    <div class="bc"><span class="e">⚙️</span><div><b>הסקילים של סוכן כפול</b><span>SKILL.md לקלוד קוד</span></div></div>
+    <div class="bc"><span class="e">🎬</span><div><b>5 סגנונות עריכה</b><span>Glass, Vox, Premium ועוד</span></div></div>
     <div class="bc"><span class="e">🪝</span><div><b>100 הוקים ויראליים</b><span>השנייה הראשונה, כתובה</span></div></div>
     <div class="bc lime"><span class="e">💬</span><div><b>קבוצת וואטסאפ</b><span>תמיכה ומענה על שאלות</span></div></div>
   </div>
-</div>
 </body>
 </html>
