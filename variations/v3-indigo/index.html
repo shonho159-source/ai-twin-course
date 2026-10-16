@@ -154,7 +154,7 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
 .phone{position:relative;background:var(--deep);border:2px solid var(--lilac);border-radius:46px;padding:10px}
 .phone::before{content:"";position:absolute;top:15px;left:50%;width:22%;height:15px;margin-left:-11%;background:var(--deep);border-radius:999px;z-index:5}
 .gif-slot{position:relative;aspect-ratio:9/16;border-radius:36px;overflow:hidden;background:radial-gradient(120% 70% at 50% 30%,#2A2380 0%,#17134A 55%,#110D3A 100%)}
-.hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--deep)}
+.hvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--deep)}
 .hv-build{position:absolute;inset:0;display:grid;place-items:center;background:rgba(7,5,28,.6);z-index:2;transition:opacity .6s var(--snap)}
 .hv-build .lottie{width:72%;aspect-ratio:1}
 .gif-slot.live .hv-build{opacity:0;pointer-events:none}
@@ -241,9 +241,9 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
 
 /* S4: inner-voice bubbles */
 .vox{display:flex;flex-direction:column;gap:12px;max-width:560px;margin:44px auto 0}
-.vb{align-self:flex-start;max-width:90%;background:var(--surface-2);color:var(--ink);border:1px solid var(--line-2);font-weight:700;font-size:clamp(19px,.6vw + 17px,24px);line-height:1.35;padding:14px 20px 15px;border-radius:22px 22px 6px 22px}
-.vb:nth-child(even){align-self:flex-end;border-radius:22px 22px 22px 6px;background:var(--bg)}
-.vb.hot{background:var(--lime);color:var(--bg);border-color:var(--lime)}
+.vbub{align-self:flex-start;max-width:90%;background:var(--surface-2);color:var(--ink);border:1px solid var(--line-2);font-weight:700;font-size:clamp(19px,.6vw + 17px,24px);line-height:1.35;padding:14px 20px 15px;border-radius:22px 22px 6px 22px}
+.vbub:nth-child(even){align-self:flex-end;border-radius:22px 22px 22px 6px;background:var(--bg)}
+.vbub.hot{background:var(--lime);color:var(--bg);border-color:var(--lime)}
 .beyond{margin-top:calc(var(--sec) * .8);text-align:center}
 .by-h{font-weight:900;font-size:clamp(32px,2.6vw + 22px,60px);line-height:1.1;letter-spacing:-.01em;text-wrap:balance;max-width:18ch;margin-inline:auto}
 .by-q{margin-top:18px;font-size:clamp(20px,.6vw + 18px,26px);font-weight:500;color:var(--dim)}
@@ -527,6 +527,19 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
 .pills li:nth-child(even){border:2px solid var(--lilac);color:var(--ink)}
 .pills li:nth-child(1){rotate:-1.5deg}.pills li:nth-child(2){rotate:1deg}.pills li:nth-child(3){rotate:1.5deg}.pills li:nth-child(4){rotate:-1deg}
 
+/* ===== outcomes ===== */
+.outs{padding:var(--sec) 0;background:var(--surface)}
+.outs .h2{text-align:center}
+.outc{display:grid;gap:14px;max-width:1080px;margin:44px auto 0}
+.oc{position:relative;background:var(--bg);border:1px solid var(--line-2);border-radius:22px;padding:22px 22px 24px}
+.oc .em{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--surface-2);font-size:28px;line-height:1;margin-bottom:14px}
+.oc h3{font-weight:900;font-size:clamp(21px,.6vw + 19px,26px);line-height:1.25}
+.oc p{margin-top:8px;color:var(--dim);font-size:clamp(17px,.2vw + 16px,19px);line-height:1.55}
+.oc.big{background:var(--lime);color:var(--bg);border-color:var(--lime)}
+.oc.big p{color:#2E3A07}
+.oc-n{display:block;font-weight:900;font-size:clamp(52px,3vw + 40px,84px);line-height:1;letter-spacing:-.02em;margin-bottom:6px}
+@media (min-width:760px){.outc{grid-template-columns:repeat(3,1fr)}.oc.big{grid-column:span 2;grid-row:span 1}}
+
 /* ===== S12 · bonus cards, stacked on scroll ===== */
 .s12{padding:var(--sec) 0 calc(var(--sec) * .8)}
 .s12-head{display:flex;flex-direction:column;gap:16px;align-items:flex-start;margin-bottom:56px}
@@ -663,8 +676,8 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
 .consent input:checked::after{content:"";width:6px;height:11px;border-right:2.5px solid var(--bg);border-bottom:2.5px solid var(--bg);transform:translateY(-1px) rotate(45deg)}
 .consent input:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
 .consent a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-.old{font-size:18px;color:var(--dim)}
-.old s{text-decoration:none;position:relative;display:inline-block;color:var(--ink);font-weight:500}
+.old{font-size:clamp(22px,.8vw + 19px,28px);color:var(--dim);font-weight:500}
+.old s{text-decoration:none;position:relative;display:inline-block;color:var(--ink);font-weight:900}
 .old s::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:var(--lime);border-radius:2px;transform-origin:right center}
 .plabel{margin-top:16px;font-weight:700;font-size:clamp(18px,.4vw + 17px,21px);line-height:1.4;text-wrap:balance}
 .amount{display:flex;align-items:baseline;justify-content:center;gap:.14em;color:var(--lime);font-weight:900;margin-top:8px;line-height:1}
@@ -821,7 +834,7 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
   .vc:nth-child(4n+2),.vc:nth-child(4n+4){margin-top:56px}
   .vc:nth-child(n+5){margin-top:-10px}
   .vc:nth-child(6),.vc:nth-child(8){margin-top:46px}
-  .cases{grid-template-columns:1.3fr 1fr;gap:28px;align-items:start}
+  .cases{grid-template-columns:minmax(0,640px);justify-content:center;gap:28px;align-items:start}
   .case:nth-child(2){margin-top:44px}
   .case:nth-child(3){margin-top:88px}
   .case:nth-child(1) .who b{font-size:24px}
@@ -862,9 +875,6 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
 }
 
 /* ===== proof from the course (added) ===== */
-/* fix: global .hv{position:absolute} (hero video) was stacking the testimonial cards */
-.s10 figure.pl.hv{position:relative;inset:auto;height:auto;object-fit:initial;background:none;display:block}
-.cproof figure.pl.hv,.s11 figure.lsn-top.pl.hv{position:relative;inset:auto;height:auto;object-fit:initial;background:none;display:block}
 .cproof .pc.pl.hv{width:min(66vw,280px)}
 @media (min-width:700px){.cproof .pc.pl.hv{width:auto}}
 .cproof .cba.pl.hv{width:auto}
@@ -884,14 +894,14 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
 .cba .vmedia{aspect-ratio:9/8}
 .stages{margin:76px auto 0;max-width:980px;text-align:center}
 .stg3{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;gap:10px;margin-top:28px}
-.st{margin:0}
+.si{margin:0}
 .sm{position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:var(--surface-2);border:2px solid var(--line-2)}
-.st:last-child .sm{border-color:var(--lime);box-shadow:-6px 6px 0 var(--lilac)}
+.si:last-child .sm{border-color:var(--lime);box-shadow:-6px 6px 0 var(--lilac)}
 .sm img,.sm video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.st figcaption{padding-top:10px}
-.st b{display:flex;align-items:center;justify-content:center;gap:8px;font-size:clamp(15px,.6vw + 13px,20px);font-weight:700}
-.st b i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--lime);color:var(--bg);font-size:14px}
-.st span{display:block;color:var(--dim);font-size:clamp(13px,.3vw + 12px,16px);line-height:1.35;margin-top:3px}
+.si figcaption{padding-top:10px}
+.si b{display:flex;align-items:center;justify-content:center;gap:8px;font-size:clamp(15px,.6vw + 13px,20px);font-weight:700}
+.si b i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--lime);color:var(--bg);font-size:14px}
+.si span{display:block;color:var(--dim);font-size:clamp(13px,.3vw + 12px,16px);line-height:1.35;margin-top:3px}
 .sarr{align-self:center;margin-top:-40px;width:14px;height:14px;border-left:3px solid var(--lime);border-bottom:3px solid var(--lime);transform:rotate(45deg)}
 .st-go{margin-top:26px}
 @media (min-width:700px){.stg3{gap:22px}.sarr{width:22px;height:22px}}
@@ -995,7 +1005,7 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
       <div class="phone-pl pl">
         <div class="phone">
           <div class="gif-slot">
-            <video class="hv" muted playsinline loop preload="none" poster="../../assets/video/peleg-double-hero-poster.jpg" data-src="../../assets/video/peleg-double-hero.mp4" aria-label="סרטון שהכפיל של פלג יצר, בלי צילום"></video>
+            <video class="hvid" muted playsinline loop preload="none" poster="../../assets/video/peleg-double-hero-poster.jpg" data-src="../../assets/video/peleg-double-hero.mp4" aria-label="סרטון שהכפיל של פלג יצר, בלי צילום"></video>
             <div class="hv-build" aria-hidden="true"><div class="lottie" data-lottie="scan-face"></div></div>
             <div class="hv-prog" aria-hidden="true"><i></i></div>
             <button class="hv-snd" type="button" aria-pressed="false"><i aria-hidden="true"><b></b><b></b><b></b></i><span class="sr">להפעלת הקול</span></button>
@@ -1016,10 +1026,10 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
   <div class="wrap">
     <h2 class="h2"><span class="ln m">אתה מכיר את</span> <span class="ln m lime">המשפטים האלה.</span></h2>
     <ul class="vox popg">
-      <li class="vb pi">״כל סרטון מרגיש לי כמו הפקה.״</li>
-      <li class="vb pi">״העורך לוקח לי 200-400 ש״ח לסרטון.״</li>
-      <li class="vb pi">״נמאס לי לעשות 14 טייקים לכל סרטון.״</li>
-      <li class="vb hot pi">״אין לי זמן לשבת על תוכן כל שבוע.״</li>
+      <li class="vbub pi">״כל סרטון מרגיש לי כמו הפקה.״</li>
+      <li class="vbub pi">״העורך לוקח לי 200-400 ש״ח לסרטון.״</li>
+      <li class="vbub pi">״נמאס לי לעשות 14 טייקים לכל סרטון.״</li>
+      <li class="vbub hot pi">״אין לי זמן לשבת על תוכן כל שבוע.״</li>
     </ul>
     <figure class="rgif rv" aria-hidden="true"><video class="loop" muted playsinline loop preload="none" width="480" height="360" poster="../../assets/gifs/gif-pain.jpg" data-src="../../assets/gifs/gif-pain.mp4"></video></figure>
     <div class="beyond">
@@ -1237,11 +1247,11 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
     <div class="stages">
       <h3 class="h3 rv">מתמונה אחת, לריל ערוך</h3>
       <div class="stg3 rv">
-        <figure class="st"><div class="sm"><img src="../../assets/course/proof/stage-photo.webp" alt="תמונת הסטודיו שממנה נבנה הכפיל" width="540" height="960" loading="lazy"></div><figcaption><b><i>1</i>תמונה אחת</b><span>תמונת סטודיו שנוצרה מסלפי</span></figcaption></figure>
+        <figure class="si"><div class="sm"><img src="../../assets/course/proof/stage-photo.webp" alt="תמונת הסטודיו שממנה נבנה הכפיל" width="540" height="960" loading="lazy"></div><figcaption><b><i>1</i>תמונה אחת</b><span>תמונת סטודיו שנוצרה מסלפי</span></figcaption></figure>
         <span class="sarr" aria-hidden="true"></span>
-        <figure class="st"><div class="sm"><video class="st-raw" muted playsinline preload="none" poster="../../assets/course/proof/stage-raw.jpg" data-src="../../assets/course/proof/stage-raw.mp4" aria-label="הסרטון הגולמי מ-HeyGen"></video></div><figcaption><b><i>2</i>הכפיל מדבר</b><span>מה ש-HeyGen מוציא, עם הקול המשוכפל</span></figcaption></figure>
+        <figure class="si"><div class="sm"><video class="st-raw" muted playsinline preload="none" poster="../../assets/course/proof/stage-raw.jpg" data-src="../../assets/course/proof/stage-raw.mp4" aria-label="הסרטון הגולמי מ-HeyGen"></video></div><figcaption><b><i>2</i>הכפיל מדבר</b><span>מה ש-HeyGen מוציא, עם הקול המשוכפל</span></figcaption></figure>
         <span class="sarr" aria-hidden="true"></span>
-        <figure class="st"><div class="sm"><video class="st-edit" playsinline preload="none" poster="../../assets/course/proof/stage-edited.jpg" data-src="../../assets/course/proof/reel-dots.mp4" aria-label="אותו סרטון אחרי העריכה של קלוד קוד"></video><span class="snd-tag">🔊 עם סאונד</span></div><figcaption><b><i>3</i>אחרי העריכה</b><span>קלוד קוד הוסיף כתוביות, זומים ומושן</span></figcaption></figure>
+        <figure class="si"><div class="sm"><video class="st-edit" playsinline preload="none" poster="../../assets/course/proof/stage-edited.jpg" data-src="../../assets/course/proof/reel-dots.mp4" aria-label="אותו סרטון אחרי העריכה של קלוד קוד"></video><span class="snd-tag">🔊 עם סאונד</span></div><figcaption><b><i>3</i>אחרי העריכה</b><span>קלוד קוד הוסיף כתוביות, זומים ומושן</span></figcaption></figure>
       </div>
       <button class="btn st-go rv" type="button"><span class="st-lbl">תראה את שניהם ביחד</span></button>
     </div>
@@ -1293,7 +1303,6 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
     <p class="lbl rv">מתוך הקורס הדיגיטלי שלנו בקלוד קוד</p>
     <div class="cases">
       <figure class="case pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1184359810" data-title="ויקטוריה"><img src="../../assets/testimonials/video-posters/course-case-victoria.webp" alt="" width="640" height="291" loading="lazy"><button class="play" type="button" aria-label="ניגון: ויקטוריה"></button></div><figcaption class="who"><b>ויקטוריה</b><span>איך בגיל 49 ובלי שום ניסיון בתכנות ויקטוריה בנתה אתר קורסים שהגיע למקום ה-#1 בגוגל תוך שבועיים?</span></figcaption></div></figure>
-      <figure class="case pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1184359537" data-title="טל"><img src="../../assets/testimonials/video-posters/course-case-tal.webp" alt="" width="640" height="360" loading="lazy"><button class="play" type="button" aria-label="ניגון: טל"></button></div><figcaption class="who"><b>טל</b><span>טל בנה פלטפורמה לניהול קליניקות והצליח למכור אותה לבעל קליניקה שכבר התחיל להשתמש בפלטפורמה</span></figcaption></div></figure>
     </div>
 
     <div class="wa">
@@ -1322,6 +1331,22 @@ mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weig
         <li class="pi"><span aria-hidden="true">⏰ </span>אין לך עורך, ואין לך זמן</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- outcomes -->
+<section id="s11o" class="outs">
+  <div class="wrap">
+    <h2 class="h2"><span class="ln m">עם מה אתה יוצא</span> <span class="ln m lime">מהקורס הזה</span></h2>
+    <ul class="outc popg">
+      <li class="oc big pi"><span class="oc-n">300 ש״ח</span><h3>פחות על כל סרטון</h3><p>זה מה שעורך גובה על כתוביות, קאטים ואפטר אפקטס. מעכשיו קלוד קוד עושה את זה בשבילך.</p></li>
+      <li class="oc pi"><span class="em" aria-hidden="true">🎭</span><h3>כפיל דיגיטלי שזהה לך</h3><p>אותה נראות ואותו קול. בנוי מתמונה אחת ומהקלטה של דקה.</p></li>
+      <li class="oc pi"><span class="em" aria-hidden="true">🏭</span><h3>מנגנון תוכן לכל מטרה</h3><p>רילס, מודעות בממומן, סרטונים ארוכים ליוטיוב, קורסים דיגיטליים וסרטוני הסבר. הכול מאותו כפיל.</p></li>
+      <li class="oc pi"><span class="em" aria-hidden="true">🎬</span><h3>סגנונות עריכה שמתאימים לתוכן שלך</h3><p>5 סגנונות מוכנים, ואפשר לבקש מקלוד קוד להתאים אותם למותג שלך.</p></li>
+      <li class="oc pi"><span class="em" aria-hidden="true">✍️</span><h3>תסריטים שנשמעים כמוך</h3><p>הוקים ותסריטים בסגנון שלך, בעזרת הסקילים שאנחנו עובדים איתם.</p></li>
+      <li class="oc pi"><span class="em" aria-hidden="true">⏱️</span><h3>שעתיים-שלוש בשבוע על תוכן</h3><p>שגרה שבועית קבועה, במקום ימים שלמים של צילום ועריכה.</p></li>
+      <li class="oc pi"><span class="em" aria-hidden="true">🤝</span><h3>שירות שאפשר למכור לעסקים</h3><p>עסקים כבר משלמים לנו כדי שנבנה להם כפיל. אחרי הקורס תדע לעשות את זה בעצמך.</p></li>
+    </ul>
   </div>
 </section>
 
@@ -1732,7 +1757,7 @@ const CONFIG = {
 
   /* S2: the double's video. Loads near the viewport, plays muted, lights the tiles in sync */
   (function () {
-    const slot = $('.s2 .gif-slot'), v = slot && $('.hv', slot);
+    const slot = $('.s2 .gif-slot'), v = slot && $('.hvid', slot);
     if (!v) return;
     const tiles = { scan: $('.t-scan'), voice: $('.t-voice'), edit: $('.t-edit') };
     const prog = $('.hv-prog i', slot), snd = $('.hv-snd', slot), lab = $('span', snd);
