@@ -26,7 +26,8 @@ img{display:block;max-width:100%}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ul{list-style:none}
-section,footer{position:relative;scroll-margin-top:76px;overflow-x:clip}
+section,footer{position:relative;scroll-margin-top:96px;overflow-x:clip}
+#s0{scroll-margin-top:0}
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
 .narrow{max-width:860px}
 mark.ph{background:#FFE45C;color:#111;padding:0 .2em;border-radius:3px;font-weight:500;-webkit-box-decoration-break:clone;box-decoration-break:clone}
@@ -76,8 +77,8 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .intro-done [data-intro]{opacity:1!important}
 
 /* ===== S0 top bar ===== */
-.topbar{background:var(--lime);color:var(--bg);padding:10px var(--gut) 11px}
-.tb-in{max-width:var(--max);margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 22px;text-align:center}
+.topbar{position:sticky;top:0;z-index:60;background:var(--lime);color:var(--bg);padding:8px var(--gut) 9px;overflow:visible}
+.tb-in{max-width:var(--max);margin-inline:auto;display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:12px 22px;text-align:center}
 .tb-text{font-weight:500;font-size:15px;line-height:1.4}
 .cd{display:flex;gap:6px;direction:ltr;align-items:flex-start}
 .cd-sep{font-style:normal;font-weight:900;font-size:18px;line-height:1;padding-top:6px}
@@ -87,7 +88,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .cd-u small{font-size:11.5px;font-weight:500;margin-top:4px}
 
 /* ===== header ===== */
-.hd{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:2px solid var(--line)}
+.hd{position:relative;z-index:50;background:var(--bg);border-bottom:2px solid var(--line)}
 .hd-in{max-width:var(--max);margin-inline:auto;padding:9px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:12px}
 .wm{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-.5px;direction:ltr;white-space:nowrap;min-height:44px}
 .wm-t{display:inline-flex;flex-direction:column;line-height:.98;font-size:15px}
@@ -700,7 +701,8 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .vs-but{text-align:center;margin-top:34px;font-weight:900;font-size:clamp(30px,2.2vw + 22px,52px);line-height:1.1;color:var(--lime)}
 
 /* scroll progress, floating reactions, loops */
-.sprog{position:absolute;left:0;right:0;bottom:-2px;height:3px;pointer-events:none}
+.sprog{position:absolute;left:0;right:0;bottom:0;height:3px;pointer-events:none;background:rgba(14,11,43,.15)}
+.sprog i{background:var(--bg)!important}
 .sprog i{display:block;height:100%;background:var(--lime);transform:scaleX(0);transform-origin:right center}
 .reacts{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}
 .reacts span{position:absolute;bottom:8%;font-size:30px;line-height:1;animation:rise 2.8s ease-out forwards}
@@ -1021,6 +1023,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
       <div class="cd-u"><b data-unit="s">00</b><small>שניות</small></div>
     </div>
   </div>
+  <div class="sprog" aria-hidden="true"><i></i></div>
 </section>
 
 <header class="hd">
@@ -1028,7 +1031,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
     <a class="wm" href="#s1"><i class="wm-mark" aria-hidden="true"></i><span class="wm-t"><span>AI360</span></span></a>
     <a class="btn btn-sm" href="#s15">אני רוצה את הכפיל שלי</a>
   </div>
-  <div class="sprog" aria-hidden="true"><i></i></div>
 </header>
 
 <main>
@@ -1078,7 +1080,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 <!-- S4 -->
 <section id="s4" class="s4">
   <div class="wrap">
-    <h2 class="h2"><span class="ln m">אתה מכיר את</span> <span class="ln m lime">המשפטים האלה.</span></h2>
+    <h2 class="h2"><span class="ln m">אתה כבר יודע</span> <span class="ln m lime">שליצור תוכן זו מועקה</span></h2>
     <ul class="vox popg">
       <li class="vbub pi">״כל סרטון מרגיש לי כמו הפקה.״</li>
       <li class="vbub pi">״העורך לוקח לי 200-400 ש״ח לסרטון.״</li>
