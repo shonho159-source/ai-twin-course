@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1024px;height:1024px;background:#0E0B2B;display:grid;place-items:center;font-family:Rubik,sans-serif;font-weight:900;overflow:hidden}
+.m{display:flex;flex-direction:column;align-items:center;line-height:.92;letter-spacing:-.02em}
+.a{font-size:250px;color:#C6FF3D}
+.b{position:relative;font-size:250px;color:#C6FF3D}
+.b span{position:relative;z-index:2}
+.b::before{content:"כפול";position:absolute;inset:0;z-index:1}
+/* v1: solid lilac shadow-double */
+.v1 .b::before{color:#A99BFF;transform:translate(-16px,16px)}
+/* v2: striped echo, like the page hero */
+.v2 .b::before{color:transparent;-webkit-text-stroke:5px #A99BFF;background:repeating-linear-gradient(180deg,#A99BFF 0 5px,transparent 5px 14px);-webkit-background-clip:text;background-clip:text;transform:translate(-30px,64px)}
+/* v3: white first word, lime word with lilac outline double */
+.v3 .a{color:#fff}
+.v3 .b::before{color:transparent;-webkit-text-stroke:7px #A99BFF;transform:translate(-18px,-12px);z-index:3}
+</style></head>
+<body><div class="m"><div class="a">סוכן</div><div class="b"><span>כפול</span></div></div>
+<script>document.body.classList.add(new URLSearchParams(location.search).get('v')||'v1')</script>
+</body></html>
