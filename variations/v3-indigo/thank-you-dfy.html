@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>תודה · סוכן כפול בשבילך · AI360</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E0B2B">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E0B2B; --surface:#17134A; --surface-2:#221C66; --ink:#FFFFFF; --dim:#C9C4F2;
+  --lime:#C6FF3D; --lilac:#A99BFF; --line:#2E2875; --line-2:#3B3392;
+  --gut:20px; --max:1180px;
+  --pop:cubic-bezier(.34,1.56,.64,1);
+  --snap:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:'Rubik',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;font-size:18px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+ol{list-style:none}
+section,footer{position:relative;overflow-x:clip}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.narrow{max-width:700px}
+.js [data-intro]{opacity:0}
+.intro-done [data-intro]{opacity:1!important}
+
+/* button (same as the sales page) */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:62px;padding:16px 30px;background:var(--lime);color:var(--bg);font-weight:700;font-size:19px;line-height:1.2;border-radius:16px;text-decoration:none;box-shadow:0 10px 30px -8px rgba(198,255,61,.55);transition:transform .3s var(--snap),box-shadow .3s var(--snap);text-align:center;animation:halo 2.8s ease-out infinite}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(198,255,61,.45),0 10px 30px -8px rgba(198,255,61,.55)}70%,100%{box-shadow:0 0 0 14px rgba(198,255,61,0),0 10px 30px -8px rgba(198,255,61,.55)}}
+.btn::after{content:"";position:absolute;top:-20%;bottom:-20%;width:38%;left:-45%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);z-index:-1;animation:shine 4.2s var(--snap) infinite}
+@keyframes shine{0%,62%{transform:translateX(0) skewX(-18deg)}100%{transform:translateX(420%) skewX(-18deg)}}
+.btn:active{transform:scale(.97)}
+@media (hover:hover){.btn:hover{transform:translateY(-3px);animation-play-state:paused;box-shadow:0 0 0 4px rgba(198,255,61,.22),0 16px 36px -8px rgba(198,255,61,.7)}}
+.btn svg{width:24px;height:24px;flex:none}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+
+/* header */
+.hd{background:var(--bg);border-bottom:2px solid var(--line)}
+.hd-in{max-width:var(--max);margin-inline:auto;padding:12px var(--gut);display:flex;align-items:center;justify-content:center;min-height:62px}
+.wm{display:inline-flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:-.5px;direction:ltr;white-space:nowrap}
+.wm-mark{position:relative;width:20px;height:20px;flex:none}
+.wm-mark::before,.wm-mark::after{content:"";position:absolute;width:14px;height:14px;border-radius:4px}
+.wm-mark::before{background:var(--lilac);left:6px;top:6px}
+.wm-mark::after{background:var(--lime);left:0;top:0;animation:twinmark 3.6s var(--pop) infinite}
+@keyframes twinmark{0%,70%,100%{transform:translate(0,0)}80%,90%{transform:translate(6px,6px)}}
+
+/* hero */
+.ty{padding:52px 0 70px;text-align:center;overflow:clip}
+.ty .glow{position:absolute;width:720px;height:720px;left:50%;top:-260px;margin-left:-360px;background:radial-gradient(circle,rgba(198,255,61,.12),rgba(198,255,61,0) 60%);pointer-events:none}
+.ty .wrap{position:relative}
+.done{position:relative;width:104px;height:104px;margin:0 auto 26px;border-radius:28px;background:var(--surface);border:2px solid var(--lime)}
+.done .lottie{position:absolute;inset:4px}
+.h1{font-weight:900;line-height:1.04;letter-spacing:-.015em;font-size:clamp(44px,4.4vw + 28px,92px)}
+.h1 .ln{display:block}
+.h1 .l2{color:var(--lime)}
+.ln.m{overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.ln.m>.li{display:block}
+.ty-sub{max-width:30ch;margin:20px auto 0;font-size:clamp(20px,.7vw + 18px,25px);font-weight:500;color:var(--dim);line-height:1.5;text-wrap:balance}
+.ty-sub b{color:var(--ink)}
+.steps{max-width:560px;margin:34px auto 0;text-align:right;background:var(--surface);border:1.5px solid var(--line-2);border-radius:24px;padding:8px 20px;counter-reset:st}
+.steps-h{font-weight:900;font-size:clamp(22px,.8vw + 19px,28px);text-align:center;margin-top:46px}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:16px 0;counter-increment:st}
+.steps li+li{border-top:1px solid var(--line-2)}
+.steps li::before{content:counter(st);width:40px;height:40px;border-radius:12px;background:var(--lime);color:var(--bg);font-weight:900;font-size:20px;display:grid;place-items:center}
+.steps b{display:block;font-weight:900;font-size:clamp(19px,.4vw + 18px,22px);line-height:1.3}
+.steps span{display:block;font-size:clamp(17px,.3vw + 16px,19px);color:var(--dim);line-height:1.5;margin-top:3px}
+
+/* whatsapp */
+.wa{background:var(--surface);border-top:2px solid var(--line-2);padding:64px 0 72px;text-align:center}
+.wa-h{font-weight:900;font-size:clamp(30px,2.4vw + 22px,52px);line-height:1.1;text-wrap:balance}
+.wa-h .lime{color:var(--lime)}
+.wa p{max-width:30ch;margin:16px auto 0;font-size:clamp(19px,.5vw + 17px,23px);color:var(--dim);line-height:1.5}
+.wa .btn{margin-top:30px;width:min(100%,420px)}
+.wa .num{display:block;margin-top:14px;font-size:16px;color:var(--dim);direction:ltr}
+.wa .sign{margin-top:48px;font-weight:900;font-size:24px;line-height:1.35;color:var(--ink)}
+
+/* footer */
+.ft{padding:30px 0 40px;border-top:2px solid var(--line)}
+.ft-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px 6px;font-size:16px;color:var(--dim);text-align:center}
+.ft-in .wmk{font-weight:900;color:var(--ink);letter-spacing:-.5px}
+.ft-in a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px;text-decoration:none}
+
+@media (min-width:640px){:root{--gut:32px}}
+@media (min-width:960px){:root{--gut:40px} body{font-size:19px} .ty{padding-top:72px}}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js [data-intro]{opacity:1!important}
+}
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=732211489617687&ev=PageView&noscript=1" alt=""></noscript>
+
+<header class="hd">
+  <div class="hd-in"><span class="wm"><i class="wm-mark" aria-hidden="true"></i>AI360</span></div>
+</header>
+
+<main>
+<section class="ty">
+  <i class="glow" aria-hidden="true"></i>
+  <div class="wrap narrow">
+    <div class="done" data-intro aria-hidden="true"><div class="lottie" data-lottie="check-draw"></div></div>
+    <h1 class="h1" data-intro><span class="ln m">יש, סגרנו!</span> <span class="ln m l2">תודה על האמון.</span></h1>
+    <p class="ty-sub" data-intro>קיבלנו את ההזמנה שלך ל<b>חבילת 3 הסרטונים של סוכן כפול</b>. מעכשיו זה עלינו.</p>
+    <p class="steps-h" data-intro>מה קורה עכשיו?</p>
+    <ol class="steps" data-intro>
+      <li><div><b>ניצור איתך קשר בהקדם</b><span>נחזור אליך כדי לתאם את הפרטים ולהתחיל לעבוד.</span></div></li>
+      <li><div><b>בונים לך את הכפיל</b><span>מקימים את כל המערכת: תסריט, קול ועריכה.</span></div></li>
+      <li><div><b>מקבלים 3 סרטונים</b><span>ערוכים ומוכנים לעלות.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wa">
+  <div class="wrap narrow">
+    <h2 class="wa-h">ובינתיים? <span class="lime">אנחנו בוואטסאפ.</span></h2>
+    <p>שאלה, רעיון לסרטון, או סתם להגיד שלום. מוזמן לכתוב לנו.</p>
+    <a class="btn" href="https://wa.me/972507744921?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%9B%D7%A9%D7%AA%D7%99%20%D7%A2%D7%9B%D7%A9%D7%99%D7%95%20%D7%90%D7%AA%20%D7%97%D7%91%D7%99%D7%9C%D7%AA%203%20%D7%94%D7%A1%D7%A8%D7%98%D7%95%D7%A0%D7%99%D7%9D%20%D7%A9%D7%9C%20%D7%A1%D7%95%D7%9B%D7%9F%20%D7%9B%D7%A4%D7%95%D7%9C" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1-1.1-1.4-1.8-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.4-.9 2.2.1 1 .5 1.9 1.1 2.7 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.5.1.6-.1 1.2-.5 1.5-1 .2-.3.2-.7.1-1.1l-.5-.3z"/></svg>לכתוב לנו בוואטסאפ</a>
+    <span class="num">+972 50-774-4921</span>
+    <p class="sign">באהבה ענקית,<br>שון ופלג</p>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <span class="wmk">AI360</span><span aria-hidden="true">·</span><a href="/course-terms" target="_blank" rel="noopener">תקנון</a><span aria-hidden="true">·</span><a href="/course-privacy" target="_blank" rel="noopener">מדיניות פרטיות</a><span aria-hidden="true">·</span><a href="/accessibility">הצהרת נגישות</a><span aria-hidden="true">·</span><a href="#" data-a360-cookie-prefs>הגדרות עוגיות</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" integrity="sha384-J8C0MvgX4WP58J4N2W99vCKd2J6z99ynOJ5bEfE6jeP7kVTW1drYtv/jzrxM5jbm" crossorigin="anonymous"></script>
+
+<script>
+const CONFIG = {
+  pixelId: '732211489617687',
+  pixelEnabled: true,
+  lottieBase: '../../assets/lottie/v3-indigo/'
+};
+
+/* Meta Pixel: PageView, and Purchase of the done-for-you package once per tab */
+(function () {
+  if (!CONFIG.pixelEnabled) { window.fbq = function () {}; return; }
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', CONFIG.pixelId); fbq('track', 'PageView');
+  let sent = false;
+  try { sent = sessionStorage.getItem('da_dfy_purchase_sent') === '1'; sessionStorage.setItem('da_dfy_purchase_sent', '1'); } catch (e) {}
+  if (!sent) fbq('track', 'Purchase', { value: 999, currency: 'ILS', content_name: 'double-agent-dfy' });
+})();
+
+/* Lottie check mark */
+(function () {
+  if (!window.lottie) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-lottie]').forEach(el => {
+    const anim = lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: !reduce,
+      path: CONFIG.lottieBase + el.dataset.lottie + '.json' });
+    if (reduce) anim.addEventListener('DOMLoaded', () => anim.goToAndStop(30, true));
+  });
+})();
+
+/* intro motion */
+(function () {
+  const root = document.documentElement;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap) { root.classList.remove('js'); return; }
+  setTimeout(() => root.classList.add('intro-done'), 3000);
+  document.querySelectorAll('.ln.m').forEach(el => { el.innerHTML = '<span class="li">' + el.innerHTML + '</span>'; });
+  gsap.set('.h1 .li', { yPercent: 110 });
+  gsap.timeline({ defaults: { ease: 'power3.out' }, delay: .1 })
+    .fromTo('.done', { opacity: 0, scale: .6, rotate: -8 }, { opacity: 1, scale: 1, rotate: 0, duration: .5, ease: 'back.out(1.8)' })
+    .to('.h1', { opacity: 1, duration: .01 }, '-=.2')
+    .to('.h1 .li', { yPercent: 0, duration: .55, stagger: .08 }, '<')
+    .fromTo('.ty-sub', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .45 }, '-=.2')
+    .fromTo('.steps-h, .steps', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .5, stagger: .08 }, '-=.25');
+})();
+</script>
+<!-- AI360 compliance: cookie bar (links to the course privacy policy) + accessibility widget; served by the ai360 site -->
+<script src="/compliance/ai360-compliance.js" defer data-consent="bar" data-privacy="/course-privacy"></script>
+</body>
+</html>

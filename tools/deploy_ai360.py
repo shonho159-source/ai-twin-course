@@ -1,4 +1,5 @@
-"""Copy the v3 sales page into the ai360 site under /double-agent/ (thank-you page at /double-agent/thanks/).
+"""Copy the v3 sales page into the ai360 site under /double-agent/ (thank-you page at /double-agent/thanks/,
+the done-for-you purchase thank-you page at /double-agent/thanks-dfy/).
 Only the assets the two pages reference are copied, and relative ../../assets/ paths become /double-agent/assets/.
 Usage: python3 tools/deploy_ai360.py [ai360_repo_path]   (then commit and push the ai360 repo)
 """
@@ -11,16 +12,18 @@ PREFIX = "/double-agent/assets/"
 REF = re.compile(r"\.\./\.\./assets/([^\"')\s]+)")
 
 # Replace only what this script owns; other folders under /double-agent/ (e.g. Peleg's webinar/) stay untouched
-for owned in ("index.html", "thanks", "assets"):
+for owned in ("index.html", "thanks", "thanks-dfy", "assets"):
     target = DST / owned
     if target.is_dir():
         shutil.rmtree(target)
     elif target.exists():
         target.unlink()
 (DST / "thanks").mkdir(parents=True, exist_ok=True)
+(DST / "thanks-dfy").mkdir(parents=True, exist_ok=True)
 
 needed = set()
-for src_name, dst_rel in (("index.html", "index.html"), ("thank-you.html", "thanks/index.html")):
+PAGES = (("index.html", "index.html"), ("thank-you.html", "thanks/index.html"), ("thank-you-dfy.html", "thanks-dfy/index.html"))
+for src_name, dst_rel in PAGES:
     html = (PAGE / src_name).read_text(encoding="utf-8")
     needed.update(REF.findall(html))
     (DST / dst_rel).write_text(html.replace("../../assets/", PREFIX), encoding="utf-8")
@@ -39,4 +42,4 @@ for rel in sorted(needed):
         sys.exit(f"missing asset: {rel}")
 
 size = sum(f.stat().st_size for f in DST.rglob("*") if f.is_file()) / 1e6
-print(f"{DST}: 2 pages, {copied} asset files, {size:.1f} MB")
+print(f"{DST}: {len(PAGES)} pages, {copied} asset files, {size:.1f} MB")
