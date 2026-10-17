@@ -11,10 +11,11 @@ body{width:880px;height:1120px;font-family:Rubik,sans-serif;position:relative;ov
 .lap{position:absolute;left:60px;top:40px;width:760px}
 .lid{background:#16152a;border-radius:24px 24px 8px 8px;padding:12px;box-shadow:0 50px 90px rgba(0,0,0,.55),inset 0 0 0 1.5px rgba(255,255,255,.09)}
 .scr{aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#0B0920;padding:22px 24px;display:flex;flex-direction:column}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.tlogo{height:68px;width:auto;display:block}
 .top b{font-size:40px;font-weight:900;color:#C6FF3D}
 .top span{font-size:26px;font-weight:700;background:#221C66;border:1px solid #3B3392;padding:7px 14px;border-radius:999px}
-.ls{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;background:#17134A;border:1px solid #2E2875;font-size:30px;font-weight:500;margin-bottom:9px}
+.ls{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:12px;background:#17134A;border:1px solid #2E2875;font-size:30px;font-weight:500;margin-bottom:9px}
 .ls i{flex:none;width:40px;height:40px;border-radius:9px;border:2px solid #3B3392;display:grid;place-items:center;font-style:normal;font-size:15px;font-weight:900}
 .ls.d i{background:#C6FF3D;border-color:#C6FF3D;color:#0E0B2B}
 .ls.n{border-color:#C6FF3D;background:#221C66;font-weight:700}
@@ -27,9 +28,7 @@ body{width:880px;height:1120px;font-family:Rubik,sans-serif;position:relative;ov
 .ph-s{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:radial-gradient(120% 70% at 50% 25%,#3B3392 0%,#17134A 55%,#0B0920 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 18px}
 .ph-s::before{content:"";position:absolute;top:11px;left:50%;width:86px;height:24px;margin-left:-43px;border-radius:99px;background:#000}
 .ph-s small{font-size:16px;font-weight:700;color:#C9C4F2;letter-spacing:.02em}
-.nm{position:relative;margin:10px 0 0;font-weight:900;line-height:.95;font-size:62px;color:#C6FF3D}
-.nm em{display:block;font-style:normal;position:relative}
-.nm em::after{content:"כפול";position:absolute;inset:0;transform:translate(-10px,26px);color:transparent;-webkit-text-stroke:2px #A99BFF;z-index:-1}
+.nm{display:block;width:190px;height:auto;margin-top:16px}
 .ph-s p{margin-top:44px;font-size:16px;color:#C9C4F2;line-height:1.4}
 .ph-btn{margin-top:22px;background:#C6FF3D;color:#0E0B2B;font-weight:900;font-size:17px;padding:12px 22px;border-radius:14px}
 /* bonuses, bigger */
@@ -46,7 +45,7 @@ body{width:880px;height:1120px;font-family:Rubik,sans-serif;position:relative;ov
 <body>
   <div class="lap">
     <div class="lid"><div class="scr">
-      <div class="top"><b>סוכן כפול</b><span>14 שיעורים</span></div>
+      <div class="top"><img class="tlogo" src="../../assets/logo/logo-1-v1-t.png" alt="סוכן כפול"><span>14 שיעורים</span></div>
       <div class="ls d"><i>1</i>ברוכים הבאים לסוכן כפול</div>
       <div class="ls d"><i>2</i>האנטומיה של ריל שעובד</div>
       <div class="ls n"><i>3</i>המילון: הכלים שנעבוד איתם</div>
@@ -57,7 +56,7 @@ body{width:880px;height:1120px;font-family:Rubik,sans-serif;position:relative;ov
   </div>
   <div class="ph"><div class="ph-s">
     <small>הקורס של שון ופלג</small>
-    <div class="nm"><span>סוכן</span><em>כפול</em></div>
+    <img class="nm" src="../../assets/logo/logo-1-v1-t.png" alt="סוכן כפול">
     <p>הכפיל שלך<br>מתחיל לעבוד היום</p>
     <span class="ph-btn">לשיעור הראשון</span>
   </div></div>

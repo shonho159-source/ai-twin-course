@@ -62,7 +62,15 @@ def compose(echo, name, gap=14):
     cy, cx = (ys.min() + ys.max()) / 2, (xs.min() + xs.max()) / 2
     img = np.stack([ndi.shift(img[..., c], (H / 2 - cy, W / 2 - cx), order=1, mode='constant', cval=BG[c]) for c in range(3)], -1)
     Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)).save(f'{OUT}/{name}.png', optimize=True)
-    print(name, 'ok')
+    # transparent cut for mockups and pages: lime over lilac, nothing else
+    A = np.maximum(al, echo)
+    rgb = (LIME * al[..., None] + LILAC * (echo * (1 - al))[..., None]) / np.maximum(A, 1e-6)[..., None]
+    rgba = np.dstack([np.clip(rgb, 0, 255), A * 255]).astype(np.uint8)
+    ys, xs = np.where(A > .02)
+    pad = 24
+    cut = rgba[max(ys.min() - pad, 0):ys.max() + pad, max(xs.min() - pad, 0):xs.max() + pad]
+    Image.fromarray(cut).save(f'{OUT}/{name}-t.png', optimize=True)
+    print(name, 'ok', cut.shape[1], 'x', cut.shape[0])
 
 
 DX, DY = -66, 150                                  # same direction and distance as the original echo

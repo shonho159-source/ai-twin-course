@@ -655,7 +655,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 @keyframes nichepop{0%,100%{transform:scale(1)}8%{transform:scale(1.06)}16%{transform:scale(1)}}
 .mk-wa{width:min(90%,320px);background:#0B141A;border-radius:16px;overflow:hidden;font-size:13.5px;box-shadow:0 18px 40px -24px rgba(0,0,0,.6)}
 .wa-h{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#1F2C34;color:#E9EDEF;font-weight:700}
-.wa-h i{width:22px;height:22px;border-radius:50%;background:var(--lime);flex:none}
+.wa-h i{width:26px;height:26px;border-radius:50%;background:#0C0827 url(../../assets/logo/wa-avatar.webp) center/cover;flex:none}
 .wa-b{display:flex;flex-direction:column;gap:6px;padding:10px 10px 12px;min-height:118px}
 .wab{max-width:82%;padding:6px 9px;border-radius:9px;line-height:1.35;color:#E9EDEF;opacity:0;animation:wa 9s var(--snap) infinite}
 .wab.in{align-self:flex-start;background:#202C33}
@@ -1013,6 +1013,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 </style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=732211489617687&ev=PageView&noscript=1" alt=""></noscript>
 
 <!-- S0 -->
 <section id="s0" class="topbar">
@@ -1570,11 +1571,11 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 const CONFIG = {
   pageTag: 'double-agent-v3-indigo',             // e.g. double-agent-v1-noir
   windowHours: 12,                            // launch price window per visitor
-  paymentUrl: '',   // Cardcom PaymentSP URL (to be provided)
+  paymentUrl: 'https://secure.cardcom.solutions/EA/EA5/gnS0bKOXDkm9MtqFdoyQQ',   // Cardcom page; name/email/phone are prefilled from the query
   makeWebhook: '',  // Make webhook (to be provided)
   sheetUrl: 'https://script.google.com/macros/s/AKfycbw-KfL9r8Hk-uJERuFSiTIYxVZp5XnCXzE6-6pjMX_q3shjTgJdmVlgjkhob_G2Nxk4/exec', // Apps Script web app: every lead is also written to the leads sheet
   pixelId: '732211489617687',
-  pixelEnabled: false,                         // turned on at launch only
+  pixelEnabled: true,
   gifSrc: '',       // twin GIF/WebP path; empty = built-in animation stays
   lottieBase: '../../assets/lottie/v3-indigo/'  // your palette folder
 };
@@ -1623,7 +1624,7 @@ const CONFIG = {
   });
 })();
 
-/* Meta Pixel (off until launch) */
+/* Meta Pixel */
 (function () {
   if (!CONFIG.pixelEnabled) { window.fbq = function () {}; return; }
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -1649,14 +1650,16 @@ const CONFIG = {
       utm_content: val('utm_content'), utm_term: val('utm_term'), fbclid: val('fbclid'), gclid: val('gclid'),
       landing_url: val('landing_url'), consent: form.querySelector('[name=consent]').checked ? 'yes' : 'no', page: CONFIG.pageTag };
     /* backup: every lead goes to the Google Sheet too (text/plain = no CORS preflight; beacon survives the redirect) */
+    const body = JSON.stringify(data);
     if (isUrl(CONFIG.sheetUrl)) {
-      const body = JSON.stringify(data);
       const sent = navigator.sendBeacon && navigator.sendBeacon(CONFIG.sheetUrl, new Blob([body], { type: 'text/plain;charset=UTF-8' }));
       if (!sent) fetch(CONFIG.sheetUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body, keepalive: true }).catch(() => {});
     }
+    fbq('track', 'Lead');
+    try { sessionStorage.setItem('da_lead', body); } catch (err) {}   // prefills the offer form on the thank-you page
     if (!isUrl(CONFIG.paymentUrl)) { if (btn) btn.textContent = 'מצב תצוגה: הקופה עוד לא מחוברת'; return; }
     if (btn) { btn.disabled = true; btn.textContent = 'מעביר לתשלום מאובטח...'; }
-    fbq('track', 'Lead'); fbq('track', 'InitiateCheckout', { value: 397, currency: 'ILS' });
+    fbq('track', 'InitiateCheckout', { value: 397, currency: 'ILS' });
     if (isUrl(CONFIG.makeWebhook)) fetch(CONFIG.makeWebhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(() => {});
     const url = CONFIG.paymentUrl + '?subscribers_name=' + encodeURIComponent(data.name) + '&subscribers_email=' + encodeURIComponent(data.email) +
       '&subscribers_phone=' + encodeURIComponent(data.phone) + '&custom_field_01=' + encodeURIComponent(data.utm_source) + '&custom_field_02=' + encodeURIComponent(data.utm_campaign);
