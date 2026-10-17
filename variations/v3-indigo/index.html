@@ -148,7 +148,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .sub span:last-child{background:var(--lilac);color:var(--bg)}
 .sub.one span{font-size:clamp(19px,.7vw + 17px,25px);font-weight:900;padding:12px 22px 13px;border-radius:14px;border:0;background:var(--lilac);color:var(--bg);box-shadow:none}
 .hero .body{max-width:34ch;margin:22px auto 0;font-size:clamp(18px,.5vw + 16px,22px);color:var(--dim);text-wrap:pretty}
-.hero .cta{margin-top:30px}
 .micro{margin:18px auto 0;font-size:16px;color:var(--dim);max-width:46ch;line-height:1.55}
 
 /* ===== S2 stage + phone ===== */
@@ -1049,7 +1048,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
     </h1>
     <p class="sub one" data-intro><span>להיפטר מהצלם ועורך הוידאו שלך אחת ולתמיד</span></p>
     <p class="body" data-intro>הכפיל מביא את הרעיון, כותב את התסריט, מדבר בקול שלך ועורך את עצמו. אתה בוחר, מאשר ומעלה.</p>
-    <div class="cta" data-intro><a class="btn" href="#s15">אני רוצה את הכפיל שלי<i class="arr" aria-hidden="true"></i></a></div>
   </div>
 </section>
 
@@ -1939,7 +1937,6 @@ const CONFIG = {
     .to('.sub', { opacity: 1, duration: .01 }, '-=.25')
     .to('.sub span', { opacity: 1, y: 0, scale: 1, duration: .42, stagger: .07, ease: 'back.out(1.6)' }, '<')
     .fromTo('.hero .body', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .45 }, '-=.25')
-    .fromTo('.hero .cta', { opacity: 0, y: 16, scale: .94 }, { opacity: 1, y: 0, scale: 1, duration: .45, ease: 'back.out(1.6)' }, '-=.3')
     ;
 
   /* headline line masks */
