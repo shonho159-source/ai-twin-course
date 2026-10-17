@@ -583,6 +583,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .oc p{margin-top:8px;color:var(--dim);font-size:clamp(17px,.2vw + 16px,19px);line-height:1.55}
 .oc.big{background:var(--lime);color:var(--bg);border-color:var(--lime)}
 .oc.big p{color:#2E3A07}
+.oc-k{display:block;font-weight:700;font-size:clamp(18px,.4vw + 17px,22px);margin-bottom:4px}
 .oc-n{display:block;font-weight:900;font-size:clamp(52px,3vw + 40px,84px);line-height:1;letter-spacing:-.02em;margin-bottom:6px}
 @media (min-width:760px){.outc{grid-template-columns:repeat(3,1fr)}.oc.big{grid-column:span 2;grid-row:span 1}}
 
@@ -1356,7 +1357,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
   <div class="wrap">
     <h2 class="h2"><span class="ln m">עם מה אתה יוצא</span> <span class="ln m lime">מהקורס הזה</span></h2>
     <ul class="outc popg">
-      <li class="oc big pi"><span class="oc-n">300 ש״ח</span><h3>פחות על כל סרטון</h3><p>זה מה שעורך גובה על כתוביות, קאטים ואפטר אפקטס. מעכשיו קלוד קוד עושה את זה בשבילך.</p></li>
+      <li class="oc big pi"><span class="oc-k">חיסכון של</span><span class="oc-n">300 ש״ח</span><h3>בממוצע על כל סרטון</h3><p>זה מה שעורך גובה על כתוביות, קאטים ואפטר אפקטס. מעכשיו קלוד קוד עושה את זה בשבילך.</p></li>
       <li class="oc pi"><span class="em" aria-hidden="true">🎭</span><h3>כפיל דיגיטלי שזהה לך</h3><p>אותה נראות ואותו קול. בנוי מתמונה אחת ומהקלטה של דקה.</p></li>
       <li class="oc pi"><span class="em" aria-hidden="true">🏭</span><h3>מנגנון תוכן לכל מטרה</h3><p>רילס, מודעות בממומן, סרטונים ארוכים ליוטיוב, קורסים דיגיטליים וסרטוני הסבר. הכול מאותו כפיל.</p></li>
       <li class="oc pi"><span class="em" aria-hidden="true">🎬</span><h3>סגנונות עריכה שמתאימים לתוכן שלך</h3><p>5 סגנונות מוכנים, ואפשר לבקש מקלוד קוד להתאים אותם למותג שלך.</p></li>
@@ -1488,8 +1489,8 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
         <div class="price-in">
           <p class="old">המחיר הרגיל: <s>697 ש״ח</s></p>
           <p class="plabel">מחיר השקה, רק ל-12 השעות הקרובות:</p>
-          <p class="amount"><span class="n" data-from="697">297</span><span class="cur">ש״ח</span></p>
-          <p class="inst">או 3 תשלומים של 99 ש״ח</p>
+          <p class="amount"><span class="n" data-from="697">397</span><span class="cur">ש״ח</span></p>
+          <p class="inst">או עד 3 תשלומים</p>
           <div class="cd" data-countdown data-launch-only dir="ltr">
       <div class="cd-u"><b data-unit="h">12</b><small>שעות</small></div><i class="cd-sep" aria-hidden="true">:</i>
       <div class="cd-u"><b data-unit="m">00</b><small>דקות</small></div><i class="cd-sep" aria-hidden="true">:</i>
@@ -1548,7 +1549,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
     <h2 class="h2"><span class="ln m">אתה בפנים?</span></h2>
     <div class="rv"><a class="btn" href="#s15">אני רוצה את הכפיל שלי<i class="arr" aria-hidden="true"></i></a></div>
     <p class="sign rv">באהבה ענקית,<br>שון ופלג</p>
-    <p class="pss rv">נ.ב - מחיר ההשקה, 297 ש״ח, נגמר כשהטיימר מגיע לאפס. אחרי זה? 697 ש״ח.</p>
+    <p class="pss rv">נ.ב - מחיר ההשקה, 397 ש״ח, נגמר כשהטיימר מגיע לאפס. אחרי זה? 697 ש״ח.</p>
   </div>
 </section>
 </main>
@@ -1571,6 +1572,7 @@ const CONFIG = {
   windowHours: 12,                            // launch price window per visitor
   paymentUrl: '',   // Cardcom PaymentSP URL (to be provided)
   makeWebhook: '',  // Make webhook (to be provided)
+  sheetUrl: 'https://script.google.com/macros/s/AKfycbw-KfL9r8Hk-uJERuFSiTIYxVZp5XnCXzE6-6pjMX_q3shjTgJdmVlgjkhob_G2Nxk4/exec', // Apps Script web app: every lead is also written to the leads sheet
   pixelId: '732211489617687',
   pixelEnabled: false,                         // turned on at launch only
   gifSrc: '',       // twin GIF/WebP path; empty = built-in animation stays
@@ -1646,9 +1648,15 @@ const CONFIG = {
       utm_source: val('utm_source'), utm_medium: val('utm_medium'), utm_campaign: val('utm_campaign'),
       utm_content: val('utm_content'), utm_term: val('utm_term'), fbclid: val('fbclid'), gclid: val('gclid'),
       landing_url: val('landing_url'), consent: form.querySelector('[name=consent]').checked ? 'yes' : 'no', page: CONFIG.pageTag };
+    /* backup: every lead goes to the Google Sheet too (text/plain = no CORS preflight; beacon survives the redirect) */
+    if (isUrl(CONFIG.sheetUrl)) {
+      const body = JSON.stringify(data);
+      const sent = navigator.sendBeacon && navigator.sendBeacon(CONFIG.sheetUrl, new Blob([body], { type: 'text/plain;charset=UTF-8' }));
+      if (!sent) fetch(CONFIG.sheetUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body, keepalive: true }).catch(() => {});
+    }
     if (!isUrl(CONFIG.paymentUrl)) { if (btn) btn.textContent = 'מצב תצוגה: הקופה עוד לא מחוברת'; return; }
     if (btn) { btn.disabled = true; btn.textContent = 'מעביר לתשלום מאובטח...'; }
-    fbq('track', 'Lead'); fbq('track', 'InitiateCheckout', { value: 297, currency: 'ILS' });
+    fbq('track', 'Lead'); fbq('track', 'InitiateCheckout', { value: 397, currency: 'ILS' });
     if (isUrl(CONFIG.makeWebhook)) fetch(CONFIG.makeWebhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(() => {});
     const url = CONFIG.paymentUrl + '?subscribers_name=' + encodeURIComponent(data.name) + '&subscribers_email=' + encodeURIComponent(data.email) +
       '&subscribers_phone=' + encodeURIComponent(data.phone) + '&custom_field_01=' + encodeURIComponent(data.utm_source) + '&custom_field_02=' + encodeURIComponent(data.utm_campaign);
@@ -2013,13 +2021,13 @@ const CONFIG = {
   /* scroll progress under the header */
   gsap.to('.sprog i', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .2 } });
 
-  /* S14 price drop 397 -> 297 and strike line */
+  /* S14 price drop 697 -> 397 and strike line */
   const amt = $('.amount .n');
   if (amt) {
     const o = { v: 697 };
     amt.textContent = '697';
     ScrollTrigger.create({ trigger: '.amount', start: 'top 75%', once: true, onEnter: () => {
-      gsap.to(o, { v: 297, duration: 1.1, ease: 'power3.inOut', delay: .25, onUpdate: () => { amt.textContent = String(Math.round(o.v)); },
+      gsap.to(o, { v: 397, duration: 1.1, ease: 'power3.inOut', delay: .25, onUpdate: () => { amt.textContent = String(Math.round(o.v)); },
         onComplete: () => {
           gsap.fromTo(amt, { scale: 1.18 }, { scale: 1, duration: .5, ease: 'back.out(2.4)' });
           if (window.confetti) {

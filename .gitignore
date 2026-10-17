@@ -41,3 +41,6 @@ __pycache__/
 /copy/
 /variations/BUILD-SPEC.md
 /variations/DESIGN-DIRECTIONS.md
+
+# Apps Script source (contains the leads sheet id)
+/apps-script/

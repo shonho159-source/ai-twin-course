@@ -272,7 +272,7 @@ const CONFIG = {
   if (!CONFIG.pixelEnabled) { window.fbq = function () {}; return; }
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', CONFIG.pixelId); fbq('track', 'PageView');
-  fbq('track', 'Purchase', { value: 297, currency: 'ILS' });
+  fbq('track', 'Purchase', { value: 397, currency: 'ILS' });
 })();
 
 /* Lead form: <form id="buy-form"> with inputs name, phone, email (+ hidden utm_*, fbclid, gclid, landing_url). */
@@ -295,7 +295,7 @@ const CONFIG = {
       landing_url: val('landing_url'), page: CONFIG.pageTag };
     if (!isUrl(CONFIG.paymentUrl)) { if (btn) btn.textContent = 'מצב תצוגה: הקופה עוד לא מחוברת'; return; }
     if (btn) { btn.disabled = true; btn.textContent = 'מעביר לתשלום מאובטח...'; }
-    fbq('track', 'Lead'); fbq('track', 'InitiateCheckout', { value: 297, currency: 'ILS' });
+    fbq('track', 'Lead'); fbq('track', 'InitiateCheckout', { value: 397, currency: 'ILS' });
     if (isUrl(CONFIG.makeWebhook)) fetch(CONFIG.makeWebhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(() => {});
     const url = CONFIG.paymentUrl + '?subscribers_name=' + encodeURIComponent(data.name) + '&subscribers_email=' + encodeURIComponent(data.email) +
       '&subscribers_phone=' + encodeURIComponent(data.phone) + '&custom_field_01=' + encodeURIComponent(data.utm_source) + '&custom_field_02=' + encodeURIComponent(data.utm_campaign);
