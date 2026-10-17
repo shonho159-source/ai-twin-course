@@ -484,21 +484,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .ba figcaption span{font-weight:700;color:var(--ink);font-size:18px}
 .ba figcaption b{font-weight:900;font-size:clamp(24px,1vw + 20px,32px);color:var(--lime);line-height:1;unicode-bidi:isolate;white-space:nowrap}
 
-/* results strip */
-.res{background:var(--deep);padding:calc(var(--sec) * .8) 0;overflow:clip}
-.res .h2{text-align:center}
-.res .lead{text-align:center;margin:18px auto 0;max-width:32ch;text-wrap:balance}
-.res-mq{direction:ltr;margin-top:46px;overflow:hidden;padding:12px 0 20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.res-track{display:flex;gap:24px;width:max-content;direction:ltr;padding-inline:12px;animation:mq 40s linear infinite}
-.res-mq:hover .res-track,.res-mq:active .res-track{animation-play-state:paused}
-.rs{direction:rtl;flex:none;width:clamp(168px,44vw,226px);margin:0}
-.rs-f{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:2px solid var(--lilac);box-shadow:0 18px 40px -24px rgba(0,0,0,.6);background:var(--surface)}
-.rs:nth-child(3n+1) .rs-f{box-shadow:0 18px 40px -24px rgba(0,0,0,.6)}
-.rs:nth-child(3n+2) .rs-f{box-shadow:0 18px 40px -24px rgba(0,0,0,.6)}
-.rs-f img{width:100%;height:100%;object-fit:cover}
-.rs figcaption{margin-top:16px;display:flex;flex-direction:column;gap:5px}
-.rs figcaption b{font-weight:900;font-size:24px;color:var(--lime);line-height:1}
-.rs figcaption span{font-size:15px;color:var(--dim);line-height:1.35}
 
 /* ===== S10 ===== */
 .s10{background:var(--surface);padding:var(--sec) 0;overflow:clip}
@@ -704,9 +689,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .sprog{position:absolute;left:0;right:0;bottom:0;height:3px;pointer-events:none;background:rgba(14,11,43,.15)}
 .sprog i{background:var(--bg)!important}
 .sprog i{display:block;height:100%;background:var(--lime);transform:scaleX(0);transform-origin:right center}
-.reacts{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}
-.reacts span{position:absolute;bottom:8%;font-size:30px;line-height:1;animation:rise 2.8s ease-out forwards}
-@keyframes rise{0%{transform:translateY(0) scale(.5);opacity:0}15%{opacity:1;transform:translateY(-40px) scale(1.1)}100%{transform:translateY(-320px) translateX(var(--dx,0)) scale(1);opacity:0}}
 
 /* ===== S14 price ===== */
 .s14{padding:var(--sec) 0;overflow:clip}
@@ -872,7 +854,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
   .vlist li{padding:17px 22px}
   .founders{position:sticky;top:150px}
   .grow{max-width:560px;gap:34px}
-  .rs{width:240px}
   .founders{order:2;padding-top:90px}
   .fd{width:180px}
   .fd-box{height:250px}
@@ -914,7 +895,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
   .wab{opacity:1}
   .bonus{position:relative;top:auto}
   .ba-after{clip-path:none!important}.ba-line{display:none}
-  .res-track{flex-wrap:wrap;justify-content:center;width:auto!important}
   .tl-fill{transform:none}
   .proof .ck{background:var(--lime);border-color:var(--lime)}
   .proof .ck::after{transform:rotate(45deg) scale(1)}
@@ -1283,21 +1263,6 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
       <button class="btn st-go rv" type="button"><span class="st-lbl">תראה את שניהם ביחד</span></button>
     </div>
 
-  </div>
-</section>
-
-<section id="s9r" class="res">
-  <div class="wrap">
-    <h2 class="h2"><span class="ln m">השיטה</span> <span class="ln m lime">כבר עובדת</span></h2>
-    <p class="lead rv">סרטונים שנבנו עם כפיל AI.</p>
-  </div>
-  <div class="reacts" aria-hidden="true"></div>
-  <div class="res-mq">
-    <div class="res-track">
-      <figure class="rs"><div class="rs-f"><img src="../../assets/results/peleg-10k.webp" alt="סרטון של הכפיל של פלג: 10K צפיות" width="401" height="709"></div><figcaption><b>10K צפיות</b><span>פלג · הסרטון הראשון שעשה עם הכפיל, כטסט</span></figcaption></figure>
-      <figure class="rs"><div class="rs-f"><img src="../../assets/results/creator-300k.webp" alt="סרטון של יוצר תוכן שעובד עם כפיל AI: 300K צפיות" width="244" height="435"></div><figcaption><b>300K צפיות</b><span>יוצר תוכן שעובד עם כפיל AI</span></figcaption></figure>
-      <figure class="rs"><div class="rs-f"><img src="../../assets/results/creator-317k.webp" alt="סרטון של יוצר תוכן שעובד עם כפיל AI: 317K צפיות" width="244" height="435"></div><figcaption><b>317K צפיות</b><span>יוצר תוכן שעובד עם כפיל AI</span></figcaption></figure>
-    </div>
   </div>
 </section>
 
@@ -1813,38 +1778,6 @@ const CONFIG = {
       else if (!v.paused) v.pause();
     }), { rootMargin: '250px 0px' });
     vids.forEach(v => io.observe(v));
-  })();
-
-  /* results strip: floating reactions while it's on screen */
-  (function () {
-    const box = $('.res .reacts');
-    if (!box || reduce || !('IntersectionObserver' in window)) return;
-    const em = ['🔥', '❤️', '👏', '😮', '🚀', '💯'];
-    let timer = null;
-    const spawn = () => {
-      if (box.childElementCount > 7) return;
-      const sp = document.createElement('span');
-      sp.textContent = em[Math.floor(Math.random() * em.length)];
-      sp.style.left = (8 + Math.random() * 84) + '%';
-      sp.style.setProperty('--dx', (Math.random() * 60 - 30).toFixed(0) + 'px');
-      sp.addEventListener('animationend', () => sp.remove());
-      box.appendChild(sp);
-    };
-    new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !timer) timer = setInterval(spawn, 650);
-      else if (!e.isIntersecting && timer) { clearInterval(timer); timer = null; }
-    }).observe(box.parentElement);
-  })();
-
-  /* results strip: repeat the cards so the loop is seamless */
-  (function () {
-    const tr = $('.res-track');
-    if (!tr || reduce) return;
-    const set = tr.innerHTML, n = tr.children.length || 1;
-    let html = set, count = n;
-    while (count < 9) { html += set; count += n; }
-    tr.innerHTML = html + html;
-    Array.from(tr.children).forEach((f, i) => { if (i >= n) f.setAttribute('aria-hidden', 'true'); });
   })();
 
   /* no GSAP or reduced motion: show everything, stop here */
