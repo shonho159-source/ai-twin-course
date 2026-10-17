@@ -264,7 +264,7 @@ section,footer{position:relative;overflow-x:clip}
 
 <footer class="ft">
   <div class="wrap ft-in">
-    <span class="wmk">AI360</span><span aria-hidden="true">·</span><a href="/course-terms" target="_blank" rel="noopener">תקנון</a><span aria-hidden="true">·</span><a href="/course-privacy" target="_blank" rel="noopener">מדיניות פרטיות</a><span aria-hidden="true">·</span><a href="/accessibility">הצהרת נגישות</a>
+    <span class="wmk">AI360</span><span aria-hidden="true">·</span><a href="/course-terms" target="_blank" rel="noopener">תקנון</a><span aria-hidden="true">·</span><a href="/course-privacy" target="_blank" rel="noopener">מדיניות פרטיות</a><span aria-hidden="true">·</span><a href="/accessibility">הצהרת נגישות</a><span aria-hidden="true">·</span><a href="#" data-a360-cookie-prefs>הגדרות עוגיות</a>
   </div>
 </footer>
 
@@ -276,7 +276,7 @@ section,footer{position:relative;overflow-x:clip}
 const CONFIG = {
   pageTag: 'double-agent-upsell',             // "מקור" column in the leads sheet
   offerMinutes: 5,                            // the countdown starts over every 5 minutes; the offer itself never closes
-  paymentUrl: '',   // Cardcom page for the done-for-you build (to be provided); until then the lead is saved and the team follows up
+  paymentUrl: 'https://secure.cardcom.solutions/EA/EA5/Np8HeONrUuVdv4ZZUNnGA/PaymentSP',   // Cardcom page for the done-for-you build (999); name/email/phone prefilled
   sheetUrl: 'https://script.google.com/macros/s/AKfycbw-KfL9r8Hk-uJERuFSiTIYxVZp5XnCXzE6-6pjMX_q3shjTgJdmVlgjkhob_G2Nxk4/exec',
   pixelId: '732211489617687',
   pixelEnabled: true,
@@ -403,5 +403,7 @@ const CONFIG = {
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();
 </script>
+<!-- AI360 compliance: cookie bar (links to the course privacy policy) + accessibility widget; served by the ai360 site -->
+<script src="/compliance/ai360-compliance.js" defer data-consent="bar" data-privacy="/course-privacy"></script>
 </body>
 </html>

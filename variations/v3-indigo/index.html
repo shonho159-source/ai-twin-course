@@ -1558,7 +1558,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 <!-- S18 -->
 <footer id="s18" class="ft">
   <div class="wrap ft-in">
-    <span class="wmk">AI360</span><span aria-hidden="true">·</span><a href="/course-terms" target="_blank" rel="noopener">תקנון</a><span aria-hidden="true">·</span><a href="/course-privacy" target="_blank" rel="noopener">מדיניות פרטיות</a><span aria-hidden="true">·</span><a href="/accessibility">הצהרת נגישות</a>
+    <span class="wmk">AI360</span><span aria-hidden="true">·</span><a href="/course-terms" target="_blank" rel="noopener">תקנון</a><span aria-hidden="true">·</span><a href="/course-privacy" target="_blank" rel="noopener">מדיניות פרטיות</a><span aria-hidden="true">·</span><a href="/accessibility">הצהרת נגישות</a><span aria-hidden="true">·</span><a href="#" data-a360-cookie-prefs>הגדרות עוגיות</a>
   </div>
 </footer>
 
@@ -1572,7 +1572,7 @@ const CONFIG = {
   pageTag: 'double-agent-v3-indigo',             // e.g. double-agent-v1-noir
   windowHours: 12,                            // launch price window per visitor
   paymentUrl: 'https://secure.cardcom.solutions/EA/EA5/gnS0bKOXDkm9MtqFdoyQQ',   // Cardcom page; name/email/phone are prefilled from the query
-  makeWebhook: '',  // Make webhook (to be provided)
+  makeWebhook: 'https://hook.eu1.make.com/nn1x6uv72z0hy8s2hk7nhnaaj5y8o329',  // Make: every lead that moves on to checkout
   sheetUrl: 'https://script.google.com/macros/s/AKfycbw-KfL9r8Hk-uJERuFSiTIYxVZp5XnCXzE6-6pjMX_q3shjTgJdmVlgjkhob_G2Nxk4/exec', // Apps Script web app: every lead is also written to the leads sheet
   pixelId: '732211489617687',
   pixelEnabled: true,
@@ -1660,7 +1660,12 @@ const CONFIG = {
     if (!isUrl(CONFIG.paymentUrl)) { if (btn) btn.textContent = 'מצב תצוגה: הקופה עוד לא מחוברת'; return; }
     if (btn) { btn.disabled = true; btn.textContent = 'מעביר לתשלום מאובטח...'; }
     fbq('track', 'InitiateCheckout', { value: 397, currency: 'ILS' });
-    if (isUrl(CONFIG.makeWebhook)) fetch(CONFIG.makeWebhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(() => {});
+    /* form-encoded = no CORS preflight, and Make maps each field by name; the beacon survives the redirect */
+    if (isUrl(CONFIG.makeWebhook)) {
+      const fields = new URLSearchParams(data);
+      const ok = navigator.sendBeacon && navigator.sendBeacon(CONFIG.makeWebhook, fields);
+      if (!ok) fetch(CONFIG.makeWebhook, { method: 'POST', mode: 'no-cors', body: fields, keepalive: true }).catch(() => {});
+    }
     const url = CONFIG.paymentUrl + '?subscribers_name=' + encodeURIComponent(data.name) + '&subscribers_email=' + encodeURIComponent(data.email) +
       '&subscribers_phone=' + encodeURIComponent(data.phone) + '&custom_field_01=' + encodeURIComponent(data.utm_source) + '&custom_field_02=' + encodeURIComponent(data.utm_campaign);
     setTimeout(() => { location.href = url; }, 400);
@@ -2046,5 +2051,7 @@ const CONFIG = {
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();
 </script>
+<!-- AI360 compliance: cookie bar (links to the course privacy policy) + accessibility widget; served by the ai360 site -->
+<script src="/compliance/ai360-compliance.js" defer data-consent="bar" data-privacy="/course-privacy"></script>
 </body>
 </html>
