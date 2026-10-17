@@ -10,9 +10,14 @@ DST = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else SRC.parent / "ai360") /
 PREFIX = "/double-agent/assets/"
 REF = re.compile(r"\.\./\.\./assets/([^\"')\s]+)")
 
-if DST.exists():
-    shutil.rmtree(DST)
-(DST / "thanks").mkdir(parents=True)
+# Replace only what this script owns; other folders under /double-agent/ (e.g. Peleg's webinar/) stay untouched
+for owned in ("index.html", "thanks", "assets"):
+    target = DST / owned
+    if target.is_dir():
+        shutil.rmtree(target)
+    elif target.exists():
+        target.unlink()
+(DST / "thanks").mkdir(parents=True, exist_ok=True)
 
 needed = set()
 for src_name, dst_rel in (("index.html", "index.html"), ("thank-you.html", "thanks/index.html")):
