@@ -145,9 +145,6 @@ section,footer{position:relative;overflow-x:clip}
 .lock{position:relative;width:14px;height:11px;border-radius:3px;background:var(--lime);margin-top:5px;flex:none}
 .lock::before{content:"";position:absolute;left:2px;top:-7px;width:6px;height:7px;border:2.5px solid var(--lime);border-bottom:0;border-radius:6px 6px 0 0}
 .sent{margin-top:28px;padding:22px 18px;border-radius:18px;background:var(--surface-2);border:1.5px solid var(--lime);font-weight:700;font-size:clamp(19px,.5vw + 17px,22px);line-height:1.45}
-.over{padding:30px 22px;text-align:center}
-.over b{display:block;font-weight:900;font-size:clamp(28px,1.6vw + 22px,40px);color:var(--lilac);line-height:1.15}
-.over p{margin-top:12px;font-size:clamp(18px,.4vw + 17px,21px);color:var(--dim)}
 
 /* close */
 .close{padding:calc(var(--sec) * .7) 0;text-align:center}
@@ -173,12 +170,11 @@ section,footer{position:relative;overflow-x:clip}
 
 <a class="topbar" href="#offer">
   <span class="tb-in">
-    <span class="tb-text" data-offer-live><b>רגע, אל תסגור את הדף.</b> ההצעה הבלעדית שלך נעלמת בעוד:</span>
-    <span class="cd" data-offer-cd data-offer-live dir="ltr">
+    <span class="tb-text"><b>רגע, אל תסגור את הדף.</b> ההצעה הבלעדית שלך נעלמת בעוד:</span>
+    <span class="cd" data-offer-cd dir="ltr">
       <span class="cd-u"><b data-unit="m">05</b><small>דקות</small></span><i class="cd-sep" aria-hidden="true">:</i>
       <span class="cd-u"><b data-unit="s">00</b><small>שניות</small></span>
     </span>
-    <span class="tb-text" data-offer-over hidden><b>ההצעה הבלעדית נסגרה.</b> הקורס כבר מחכה לך במייל.</span>
   </span>
 </a>
 
@@ -231,7 +227,7 @@ section,footer{position:relative;overflow-x:clip}
 
     <div class="price-wrap rv">
       <div class="price">
-        <div class="price-in" data-offer-live>
+        <div class="price-in">
           <p class="old">המחיר הרגיל: <s>1,397 ש״ח</s></p>
           <p class="minus">פחות <b>397 ש״ח</b> ששילמת על הקורס</p>
           <p class="plabel">רק לרוכשי הקורס, ורק בדף הזה:</p>
@@ -247,15 +243,11 @@ section,footer{position:relative;overflow-x:clip}
             <label class="fld"><span>טלפון</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="0[0-9\-\s]{8,11}" dir="ltr"></label>
             <label class="fld"><span>אימייל</span><input name="email" type="email" autocomplete="email" required dir="ltr"></label>
             <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="fbclid"><input type="hidden" name="gclid"><input type="hidden" name="landing_url">
-            <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>אני מאשר/ת שקראתי את <a href="/privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> ואת <a href="/terms" target="_blank" rel="noopener">תנאי השימוש</a> של האתר, ואני מאשר/ת קבלת דיוור ועדכונים מחברת AI360 ועובדיה.</span></label>
+            <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>אני מאשר/ת שקראתי את <a href="/course-privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> ואת <a href="/course-terms" target="_blank" rel="noopener">תנאי השימוש</a> של האתר, ואני מאשר/ת קבלת דיוור ועדכונים מחברת AI360 ועובדיה.</span></label>
             <button class="btn btn-xl" type="submit">אני רוצה שתבנו לי את הכפיל</button>
             <p class="fnote"><i class="lock" aria-hidden="true"></i>התשלום מתבצע בדף המאובטח של Cardcom</p>
           </form>
           <p class="sent" data-sent hidden>קיבלנו! ניצור איתך קשר בוואטסאפ ממש בקרוב.</p>
-        </div>
-        <div class="over" data-offer-over hidden>
-          <b>נגמר הזמן.</b>
-          <p>ההצעה הזו הייתה פתוחה 5 דקות, ורק בדף הזה. הקורס כבר מחכה לך במייל, נתראה בפנים.</p>
         </div>
       </div>
     </div>
@@ -272,7 +264,7 @@ section,footer{position:relative;overflow-x:clip}
 
 <footer class="ft">
   <div class="wrap ft-in">
-    <span class="wmk">AI360</span><span aria-hidden="true">·</span><a href="/terms" target="_blank" rel="noopener">תקנון</a><span aria-hidden="true">·</span><a href="/privacy" target="_blank" rel="noopener">מדיניות פרטיות</a><span aria-hidden="true">·</span><a href="/accessibility">הצהרת נגישות</a>
+    <span class="wmk">AI360</span><span aria-hidden="true">·</span><a href="/course-terms" target="_blank" rel="noopener">תקנון</a><span aria-hidden="true">·</span><a href="/course-privacy" target="_blank" rel="noopener">מדיניות פרטיות</a><span aria-hidden="true">·</span><a href="/accessibility">הצהרת נגישות</a>
   </div>
 </footer>
 
@@ -283,7 +275,7 @@ section,footer{position:relative;overflow-x:clip}
 <script>
 const CONFIG = {
   pageTag: 'double-agent-upsell',             // "מקור" column in the leads sheet
-  offerMinutes: 5,                            // one-time offer window per visitor
+  offerMinutes: 5,                            // the countdown starts over every 5 minutes; the offer itself never closes
   paymentUrl: '',   // Cardcom page for the done-for-you build (to be provided); until then the lead is saved and the team follows up
   sheetUrl: 'https://script.google.com/macros/s/AKfycbw-KfL9r8Hk-uJERuFSiTIYxVZp5XnCXzE6-6pjMX_q3shjTgJdmVlgjkhob_G2Nxk4/exec',
   pixelId: '732211489617687',
@@ -301,25 +293,20 @@ const CONFIG = {
   if (!sent) fbq('track', 'Purchase', { value: 397, currency: 'ILS' });
 })();
 
-/* One-time offer: 5 minutes from the visitor's first view of this page; a refresh doesn't restart it.
-   [data-offer-live] shows while it runs, [data-offer-over] once it ends. */
+/* Offer countdown: 5:00 down to 0, then it starts over. Nothing on the page closes. */
 (function () {
-  const KEY = 'da_offer_end_v1';
-  let end = 0;
-  try { end = +localStorage.getItem(KEY) || 0; } catch (e) {}
-  if (!end) { end = Date.now() + CONFIG.offerMinutes * 6e4; try { localStorage.setItem(KEY, String(end)); } catch (e) {} }
+  const win = CONFIG.offerMinutes * 6e4;
+  let end = Date.now() + win;
   const pad = n => String(n).padStart(2, '0');
   function tick() {
-    const left = Math.max(0, end - Date.now());
+    if (end - Date.now() <= 0) end += win * Math.ceil((Date.now() - end + 1) / win);
+    const left = end - Date.now();
     const m = Math.floor(left / 6e4), s = Math.floor(left / 1e3) % 60;
     document.querySelectorAll('[data-offer-cd]').forEach(el => {
       el.querySelector('[data-unit="m"]').textContent = pad(m);
       el.querySelector('[data-unit="s"]').textContent = pad(s);
     });
-    const over = left === 0 && !document.documentElement.classList.contains('offer-taken');
-    document.querySelectorAll('[data-offer-live]').forEach(el => el.hidden = over);
-    document.querySelectorAll('[data-offer-over]').forEach(el => el.hidden = !over);
-    if (left > 0) setTimeout(tick, 1000);
+    setTimeout(tick, 1000 - (left % 1000));
   }
   tick();
 })();
@@ -363,7 +350,6 @@ const CONFIG = {
       if (!ok) fetch(CONFIG.sheetUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body, keepalive: true }).catch(() => {});
     }
     fbq('trackCustom', 'UpsellLead', { value: 999, currency: 'ILS' });
-    document.documentElement.classList.add('offer-taken');   // the timer can't close the card on someone who already said yes
     if (!isUrl(CONFIG.paymentUrl)) { form.hidden = true; document.querySelector('[data-sent]').hidden = false; return; }
     if (btn) { btn.disabled = true; btn.textContent = 'מעביר לתשלום מאובטח...'; }
     fbq('track', 'InitiateCheckout', { value: 999, currency: 'ILS' });
