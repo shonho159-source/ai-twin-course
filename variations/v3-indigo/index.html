@@ -722,6 +722,18 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .incl li i{flex:none;width:26px;height:26px;border-radius:8px;background:var(--lime);position:relative}
 .incl li i::after{content:"";position:absolute;left:8px;top:3px;width:7px;height:13px;border-right:3px solid var(--bg);border-bottom:3px solid var(--bg);transform:rotate(45deg)}
 .after{margin-top:20px;font-size:17px;color:var(--dim)}
+.coupon{margin:24px 0 0;padding:20px 18px 22px;border:2px dashed var(--lime);border-radius:22px;background:rgba(198,255,61,.06)}
+.cp-h{font-weight:700;font-size:clamp(19px,.4vw + 18px,22px);line-height:1.35;text-wrap:balance}
+.cp-h b{color:var(--lime)}
+.cp-row{display:flex;align-items:stretch;justify-content:center;gap:10px;margin-top:14px}
+.cp-code{display:grid;place-items:center;min-width:140px;padding:8px 22px;border-radius:14px;background:var(--surface-2);border:2px solid var(--line-2);font-weight:900;font-size:30px;line-height:1;letter-spacing:.04em;color:var(--ink);user-select:all}
+.cp-copy{min-height:54px;min-width:104px;padding:0 18px;border-radius:14px;background:var(--lime);color:var(--bg);font-weight:900;font-size:17px;transition:transform .2s var(--snap),background .2s}
+.cp-copy:active{transform:scale(.96)}
+.cp-copy.ok{background:var(--lilac)}
+@media (hover:hover){.cp-copy:hover{transform:translateY(-2px)}}
+.cp-note{margin-top:12px;font-size:16px;color:var(--dim);line-height:1.5;text-wrap:balance}
+.cp-t{margin-top:16px;font-weight:700;font-size:16px;color:var(--dim)}
+.coupon .cd{margin-top:10px}
 
 /* ===== S15 form ===== */
 .s15{padding:calc(var(--sec) * .6) 0 var(--sec)}
@@ -997,10 +1009,10 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 <!-- S0 -->
 <section id="s0" class="topbar">
   <div class="tb-in">
-    <p class="tb-text">מחיר השקה שמור לך לעוד:</p>
+    <p class="tb-text"><b>100 ש״ח הנחה</b> עם הקוד ״סוכן״ נגמרת בעוד:</p>
     <div class="cd" data-countdown data-launch-only dir="ltr">
-      <div class="cd-u"><b data-unit="h">12</b><small>שעות</small></div><i class="cd-sep" aria-hidden="true">:</i>
-      <div class="cd-u"><b data-unit="m">00</b><small>דקות</small></div><i class="cd-sep" aria-hidden="true">:</i>
+      <div class="cd-u"><b data-unit="h">01</b><small>שעות</small></div><i class="cd-sep" aria-hidden="true">:</i>
+      <div class="cd-u"><b data-unit="m">40</b><small>דקות</small></div><i class="cd-sep" aria-hidden="true">:</i>
       <div class="cd-u"><b data-unit="s">00</b><small>שניות</small></div>
     </div>
   </div>
@@ -1452,14 +1464,21 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
       <div class="price">
         <div class="price-in">
           <p class="old">המחיר הרגיל: <s>697 ש״ח</s></p>
-          <p class="plabel">מחיר השקה, רק ל-12 השעות הקרובות:</p>
-          <p class="amount"><span class="n" data-from="697">397</span><span class="cur">ש״ח</span></p>
+          <p class="plabel">מחיר השקה:</p>
+          <p class="amount"><span class="n" data-from="697">497</span><span class="cur">ש״ח</span></p>
           <p class="inst">או עד 3 תשלומים</p>
-          <div class="cd" data-countdown data-launch-only dir="ltr">
-      <div class="cd-u"><b data-unit="h">12</b><small>שעות</small></div><i class="cd-sep" aria-hidden="true">:</i>
-      <div class="cd-u"><b data-unit="m">00</b><small>דקות</small></div><i class="cd-sep" aria-hidden="true">:</i>
-      <div class="cd-u"><b data-unit="s">00</b><small>שניות</small></div>
-    </div>
+          <div class="coupon">
+            <p class="cp-h"><span aria-hidden="true">🎟️</span> ועוד <b>100 ש״ח הנחה</b> עם הקוד:</p>
+            <div class="cp-row"><span class="cp-code">סוכן</span><button type="button" class="cp-copy" data-copy="סוכן">העתקה</button></div>
+            <p class="cp-note">מזינים את הקוד בעמוד התשלום, והמחיר יורד ל-397 ש״ח.</p>
+            <p class="cp-t">הקוד בתוקף עוד:</p>
+            <div class="cd" data-countdown dir="ltr">
+              <div class="cd-u"><b data-unit="h">01</b><small>שעות</small></div><i class="cd-sep" aria-hidden="true">:</i>
+              <div class="cd-u"><b data-unit="m">40</b><small>דקות</small></div><i class="cd-sep" aria-hidden="true">:</i>
+              <div class="cd-u"><b data-unit="s">00</b><small>שניות</small></div>
+            </div>
+            <p class="sr" aria-live="polite" data-copy-status></p>
+          </div>
           <ul class="incl">
             <li><i aria-hidden="true"></i>כל שיעורי הקורס, מוקלטים</li>
             <li><i aria-hidden="true"></i>5 בונוסים בשווי 3,785 ש״ח</li>
@@ -1476,7 +1495,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
             <button class="btn btn-xl" type="submit">להמשך לתשלום מאובטח</button>
             <p class="fnote"><i class="lock" aria-hidden="true"></i>התשלום מתבצע בדף המאובטח של Cardcom</p>
           </form>
-          <p class="after">כשהטיימר נגמר? המחיר עולה ל-697 ש״ח.</p>
+          <p class="after">כשהטיימר נגמר, נגמרת גם ההנחה.</p>
         </div>
       </div>
     </div>
@@ -1513,7 +1532,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
     <h2 class="h2"><span class="ln m">אתה בפנים?</span></h2>
     <div class="rv"><a class="btn" href="#s15">אני רוצה את הכפיל שלי<i class="arr" aria-hidden="true"></i></a></div>
     <p class="sign rv">באהבה ענקית,<br>שון ופלג</p>
-    <p class="pss rv">נ.ב - מחיר ההשקה, 397 ש״ח, נגמר כשהטיימר מגיע לאפס. אחרי זה? 697 ש״ח.</p>
+    <p class="pss rv">נ.ב - הקוד ״סוכן״ מוריד 100 ש״ח מהמחיר רק עד שהטיימר מגיע לאפס.</p>
   </div>
 </section>
 </main>
@@ -1533,7 +1552,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 <script>
 const CONFIG = {
   pageTag: 'double-agent-v3-indigo',             // e.g. double-agent-v1-noir
-  windowHours: 12,                            // launch price window per visitor
+  windowMinutes: 100,                         // the 100 ש״ח code countdown, per visitor (1:40:00)
   paymentUrl: 'https://secure.cardcom.solutions/EA/EA5/gnS0bKOXDkm9MtqFdoyQQ/PaymentSP',   // Cardcom page; name/email/phone are prefilled from the query
   makeWebhook: 'https://hook.eu1.make.com/nn1x6uv72z0hy8s2hk7nhnaaj5y8o329',  // Make: every lead that moves on to checkout
   sheetUrl: 'https://script.google.com/macros/s/AKfycbw-KfL9r8Hk-uJERuFSiTIYxVZp5XnCXzE6-6pjMX_q3shjTgJdmVlgjkhob_G2Nxk4/exec', // Apps Script web app: every lead is also written to the leads sheet
@@ -1546,25 +1565,45 @@ const CONFIG = {
 /* Countdown: <div data-countdown> with children <span data-unit="d|h|m|s">.
    After the deadline: [data-launch-only] hide, [data-after-launch] show. */
 (function () {
-  /* each visitor gets a 12-hour window from the first visit; a new one starts once it runs out */
-  const KEY = 'da_deadline_v1', win = CONFIG.windowHours * 36e5;
+  /* each visitor gets a 1:40:00 window from the first visit; at zero a new one starts (the offer never closes) */
+  const KEY = 'da_deadline_v2', win = CONFIG.windowMinutes * 6e4;
   let end = 0;
   try { end = +localStorage.getItem(KEY) || 0; } catch (e) {}
   if (!end || end <= Date.now()) { end = Date.now() + win; try { localStorage.setItem(KEY, String(end)); } catch (e) {} }
   const pad = n => String(n).padStart(2, '0');
   function tick() {
+    if (end <= Date.now()) { end = Date.now() + win; try { localStorage.setItem(KEY, String(end)); } catch (e) {} }
     const left = Math.max(0, end - Date.now());
     const h = Math.floor(left / 36e5), m = Math.floor(left / 6e4) % 60, s = Math.floor(left / 1e3) % 60;
     document.querySelectorAll('[data-countdown]').forEach(el => {
       const set = (u, v) => { const n = el.querySelector('[data-unit="' + u + '"]'); if (n) n.textContent = pad(v); };
       set('h', h); set('m', m); set('s', s);
     });
-    const over = left === 0;
-    document.querySelectorAll('[data-launch-only]').forEach(el => el.hidden = over);
-    document.querySelectorAll('[data-after-launch]').forEach(el => el.hidden = !over);
-    if (!over) setTimeout(tick, 1000);
+    setTimeout(tick, 1000);
   }
   tick();
+})();
+
+/* Coupon copy button: <button data-copy="code"> */
+(function () {
+  const status = document.querySelector('[data-copy-status]');
+  document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => {
+    const code = btn.dataset.copy, label = btn.textContent;
+    const done = () => {
+      btn.textContent = 'הועתק ✓'; btn.classList.add('ok');
+      if (status) status.textContent = 'הקוד ' + code + ' הועתק';
+      setTimeout(() => { btn.textContent = label; btn.classList.remove('ok'); }, 2200);
+    };
+    const fallback = () => {
+      const t = document.createElement('textarea');
+      t.value = code; t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      t.remove();
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, fallback);
+    else fallback();
+  }));
 })();
 
 /* Twin GIF slot: <div class="gif-slot"> holds the built-in animation; replaced when CONFIG.gifSrc is set. */
@@ -1959,13 +1998,13 @@ const CONFIG = {
   /* scroll progress under the header */
   gsap.to('.sprog i', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .2 } });
 
-  /* S14 price drop 697 -> 397 and strike line */
+  /* S14 price drop 697 -> 497 and strike line */
   const amt = $('.amount .n');
   if (amt) {
     const o = { v: 697 };
     amt.textContent = '697';
     ScrollTrigger.create({ trigger: '.amount', start: 'top 75%', once: true, onEnter: () => {
-      gsap.to(o, { v: 397, duration: 1.1, ease: 'power3.inOut', delay: .25, onUpdate: () => { amt.textContent = String(Math.round(o.v)); },
+      gsap.to(o, { v: 497, duration: 1.1, ease: 'power3.inOut', delay: .25, onUpdate: () => { amt.textContent = String(Math.round(o.v)); },
         onComplete: () => {
           gsap.fromTo(amt, { scale: 1.18 }, { scale: 1, duration: .5, ease: 'back.out(2.4)' });
           if (window.confetti) {
