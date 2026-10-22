@@ -975,6 +975,11 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .sg.raw .ph{border-color:var(--dim);filter:saturate(.85)}
 .sg span{display:block;text-align:center;font-weight:700;font-size:16px;margin-top:8px}
 .sg.raw span{color:var(--dim)}
+.sg.ad .ph{display:block;width:100%;padding:0;cursor:pointer;border-color:var(--lilac)}
+.sg.ad.playing .ph{border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,61,.25)}
+.sg .hint{position:absolute;left:8px;bottom:8px;width:32px;height:32px;border-radius:50%;background:rgba(14,11,43,.78);color:var(--lime);display:grid;place-items:center;transition:opacity .25s}
+.sg .hint svg{width:18px;height:18px}
+.sg.playing .hint{opacity:0}
 .sg:not(.raw) span{color:var(--lime)}
 .lsn-top{margin-top:30px;--plate:var(--lime);--pr:20px}
 .lsn-top .card{padding:8px;border-radius:20px;background:var(--bg)}
@@ -1168,15 +1173,15 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 <!-- STYLES (added): same raw video, 5 edits -->
 <section id="styles" class="styles">
   <div class="wrap">
-    <h2 class="h2"><span class="ln m">סרטון גולמי אחד.</span> <span class="ln m lime">5 עריכות שונות.</span></h2>
-    <p class="lead rv">את אותו סרטון של הכפיל נתנו לקלוד קוד, וביקשנו 5 סגנונות. אף אחד לא פתח תוכנת עריכה.</p>
+    <h2 class="h2"><span class="ln m">דוגמאות לסגנונות עריכה</span> <span class="ln m lime">שתדעו לעשות עם AI:</span></h2>
+    <p class="lead rv">מודעות אמיתיות שערכנו בשיטה שלומדים בקורס. לחיצה על סרטון מפעילה אותו עם סאונד.</p>
     <div class="sgrid">
-      <figure class="sg raw rv"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/styles/raw.jpg" data-src="../../assets/course/styles/raw.mp4" aria-label="הסרטון הגולמי, בלי עריכה"></video></div><span>הגולמי</span></figure>
-      <figure class="sg rv"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/styles/glass.jpg" data-src="../../assets/course/styles/glass.mp4" aria-label="עריכה בסגנון Glass"></video></div><span>Glass</span></figure>
-      <figure class="sg rv"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/styles/vox.jpg" data-src="../../assets/course/styles/vox.mp4" aria-label="עריכה בסגנון Vox"></video></div><span>Vox</span></figure>
-      <figure class="sg rv"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/styles/premium.jpg" data-src="../../assets/course/styles/premium.mp4" aria-label="עריכה בסגנון Premium"></video></div><span>Premium</span></figure>
-      <figure class="sg rv"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/styles/cinematic.jpg" data-src="../../assets/course/styles/cinematic.mp4" aria-label="עריכה בסגנון Cinematic"></video></div><span>Cinematic</span></figure>
-      <figure class="sg rv"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/styles/world.jpg" data-src="../../assets/course/styles/world.mp4" aria-label="עריכה בסגנון World"></video></div><span>World</span></figure>
+      <figure class="sg ad rv"><button type="button" class="ph" aria-label="מודעה 1 מתוך 6: הפעלה עם סאונד"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/01_capcut.jpg" data-src="../../assets/course/ads/01_capcut-loop.mp4" data-full="../../assets/course/ads/01_capcut.mp4"></video><span class="hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span></button></figure>
+      <figure class="sg ad rv"><button type="button" class="ph" aria-label="מודעה 2 מתוך 6: הפעלה עם סאונד"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/03_no_work.jpg" data-src="../../assets/course/ads/03_no_work-loop.mp4" data-full="../../assets/course/ads/03_no_work.mp4"></video><span class="hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span></button></figure>
+      <figure class="sg ad rv"><button type="button" class="ph" aria-label="מודעה 3 מתוך 6: הפעלה עם סאונד"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/04_exploding.jpg" data-src="../../assets/course/ads/04_exploding-loop.mp4" data-full="../../assets/course/ads/04_exploding.mp4"></video><span class="hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span></button></figure>
+      <figure class="sg ad rv"><button type="button" class="ph" aria-label="מודעה 4 מתוך 6: הפעלה עם סאונד"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/05_one_take.jpg" data-src="../../assets/course/ads/05_one_take-loop.mp4" data-full="../../assets/course/ads/05_one_take.mp4"></video><span class="hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span></button></figure>
+      <figure class="sg ad rv"><button type="button" class="ph" aria-label="מודעה 5 מתוך 6: הפעלה עם סאונד"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/06_midnight.jpg" data-src="../../assets/course/ads/06_midnight-loop.mp4" data-full="../../assets/course/ads/06_midnight.mp4"></video><span class="hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span></button></figure>
+      <figure class="sg ad rv"><button type="button" class="ph" aria-label="מודעה 6 מתוך 6: הפעלה עם סאונד"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/08_like_me.jpg" data-src="../../assets/course/ads/08_like_me-loop.mp4" data-full="../../assets/course/ads/08_like_me.mp4"></video><span class="hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span></button></figure>
     </div>
   </div>
 </section>
@@ -1512,6 +1517,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
       <div class="qa rv"><h3><button type="button" aria-expanded="false"><span>זה עובד בעברית?</span><i class="pm" aria-hidden="true"></i></button></h3><div class="ans" hidden><p>לגמרי. הכפיל מדבר עברית בקול שלך, והכתוביות יוצאות בעברית.</p></div></div>
       <div class="qa rv"><h3><button type="button" aria-expanded="false"><span>מק או ווינדוס?</span><i class="pm" aria-hidden="true"></i></button></h3><div class="ans" hidden><p>שניהם.</p></div></div>
       <div class="qa rv"><h3><button type="button" aria-expanded="false"><span>באילו כלים משתמשים?</span><i class="pm" aria-hidden="true"></i></button></h3><div class="ans" hidden><p>שלושה כלים. את קלוד קוד כנראה כבר שמעת עליו. את שני האחרים נחשוף בהדרכה, ורוב בעלי העסקים בארץ עוד לא מכירים אותם.</p></div></div>
+      <div class="qa rv"><h3><button type="button" aria-expanded="false"><span>כמה עולות התוכנות שצריך לקורס?</span><i class="pm" aria-hidden="true"></i></button></h3><div class="ans" hidden><p>קלוד ב-20 דולר בחודש, תוכנה ליצירת אווטארים ב-29 דולר, ותוכנה לשכפול קול ב-22 דולר. ביחד זה פחות מארוחה זוגית במסעדה. עורך גובה בממוצע 300 עד 400 ש״ח על סרטון, אז מספיק סרטון אחד שתעשה בשיטה במקום לשלם לעורך, ואתה כבר ברווח על התוכנות.</p></div></div>
       <div class="qa rv"><h3><button type="button" aria-expanded="false"><span>כמה זמן עד הסרטון הראשון?</span><i class="pm" aria-hidden="true"></i></button></h3><div class="ans" hidden><p>90 דקות מהרגע שמתחילים.</p></div></div>
       <div class="qa rv"><h3><button type="button" aria-expanded="false"><span>ומה אם אנשים יזהו שזה AI?</span><i class="pm" aria-hidden="true"></i></button></h3><div class="ans" hidden><p>בגלל זה הכפיל לומד קודם את העסק ואת הסגנון שלך. תסתכל שוב על הסרטון בראש הדף, ותחליט בעצמך.</p></div></div>
       <div class="qa rv"><h3><button type="button" aria-expanded="false"><span>אני כבר בוגר של הקורס בקלוד קוד. זה לא אותו דבר?</span><i class="pm" aria-hidden="true"></i></button></h3><div class="ans" hidden><p>ממש לא. שם למדת לבנות עם קלוד קוד. פה בונים מערכת אחת שלמה: כפיל שמוציא לך סרטונים ערוכים.</p></div></div>
@@ -1817,6 +1823,27 @@ const CONFIG = {
       else if (!v.paused) v.pause();
     }), { rootMargin: '250px 0px' });
     vids.forEach(v => io.observe(v));
+  })();
+
+  /* ad examples: tap plays the full ad with sound; it goes back to the silent loop when it ends or another one starts */
+  (function () {
+    const cards = $$('.sg.ad');
+    const toLoop = f => {
+      const v = f.querySelector('video');
+      f.classList.remove('playing');
+      v.loop = true; v.muted = true; v.src = v.dataset.src; v.play().catch(() => {});
+    };
+    cards.forEach(f => {
+      const v = f.querySelector('video');
+      f.querySelector('.ph').addEventListener('click', () => {
+        if (f.classList.contains('playing')) { v.paused ? v.play().catch(() => {}) : v.pause(); return; }
+        cards.forEach(o => { if (o !== f && o.classList.contains('playing')) toLoop(o); });
+        f.classList.add('playing');
+        v.loop = false; v.src = v.dataset.full; v.muted = false; v.currentTime = 0;
+        v.play().catch(() => {});
+      });
+      v.addEventListener('ended', () => { if (f.classList.contains('playing')) toLoop(f); });
+    });
   })();
 
   /* no GSAP or reduced motion: show everything, stop here */
