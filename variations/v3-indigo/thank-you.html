@@ -106,6 +106,29 @@ section,footer{position:relative;overflow-x:clip}
 .gets li .e{flex:none;width:52px;height:52px;border-radius:15px;background:var(--surface-2);display:grid;place-items:center;font-size:27px}
 .gets li .n{color:var(--lime)}
 .voice{text-align:center;font-weight:900;font-size:clamp(32px,2.6vw + 23px,60px);line-height:1.1;color:var(--lilac);text-wrap:balance;max-width:16ch;margin:calc(var(--sec) * .55) auto 0}
+.sys{max-width:640px;margin:56px auto 0}
+.sys-grid{display:grid;gap:12px}
+.sys-t{position:relative;background:var(--bg);border:1.5px solid var(--line-2);border-radius:22px;padding:22px 20px;text-align:right}
+.sys-t .e{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--surface-2);font-size:24px;margin-bottom:12px}
+.sys-t h3{font-weight:900;font-size:clamp(21px,.6vw + 19px,26px);line-height:1.2}
+.sys-t p{margin-top:6px;color:var(--dim);font-size:clamp(17px,.3vw + 16px,19px);line-height:1.5}
+.sys-t.big{display:flex;align-items:center;gap:18px;background:var(--lime);border-color:var(--lime);color:var(--bg)}
+.sys-t.big p{color:#2E3A07}
+.sys-n{flex:none;font-weight:900;font-size:clamp(84px,6vw + 60px,128px);line-height:.85;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips span{padding:7px 13px;border-radius:999px;background:var(--surface-2);border:1.5px solid var(--line-2);font-weight:700;font-size:15px;line-height:1.2}
+.calc{margin-top:12px;padding:24px 20px;border-radius:22px;border:2px dashed var(--lilac);background:rgba(169,155,255,.08);text-align:center}
+.calc-k{font-weight:700;font-size:clamp(18px,.4vw + 17px,21px);color:var(--dim)}
+.calc-eq{margin-top:10px;font-weight:900;font-size:clamp(24px,1.4vw + 19px,34px);line-height:1.25}
+.calc-eq b{color:var(--lime);white-space:nowrap}
+.calc-s{margin-top:4px;font-weight:700;font-size:clamp(19px,.5vw + 17px,23px)}
+.calc-f{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2);font-weight:900;font-size:clamp(20px,.8vw + 17px,26px);color:var(--lilac);text-wrap:balance}
+.sys-ex-h{margin-top:40px;text-align:center;font-weight:700;font-size:clamp(18px,.4vw + 17px,21px);color:var(--dim)}
+.sys-ex{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.sys-ex .ph{width:min(30%,170px);aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:2px solid var(--lilac);background:var(--surface-2)}
+.sys-ex .ph:nth-child(2){translate:0 -14px;border-color:var(--lime)}
+.sys-ex video{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:640px){.sys-grid{grid-template-columns:1fr 1fr}.sys-t.big{grid-column:1 / -1}}
 .ans{max-width:32ch;margin:18px auto 0;text-align:center;font-size:clamp(19px,.6vw + 17px,24px);line-height:1.5}
 .ans b{color:var(--lime)}
 
@@ -219,19 +242,36 @@ section,footer{position:relative;overflow-x:clip}
       </ul>
     </div>
 
+    <div class="sys">
+      <p class="gets-h rv">וזה מה שהמערכת שלך תדע לעשות:</p>
+      <div class="sys-grid">
+        <div class="sys-t big rv"><span class="sys-n" data-count="10">10</span><div><h3>סרטונים ערוכים ביום</h3><p>עם הפנים שלך ובקול שלך, בלי לצלם אפילו פעם אחת.</p></div></div>
+        <div class="sys-t rv"><span class="e" aria-hidden="true">✂️</span><h3>קצרים וארוכים</h3><p>מרילס של חצי דקה ועד סרטון יוטיוב ארוך. אותה מערכת עורכת את שניהם.</p></div>
+        <div class="sys-t rv"><span class="e" aria-hidden="true">🎭</span><h3>אווטאר מוכן שלך לכל סוג סרטון</h3><div class="chips"><span>רילס</span><span>מודעות</span><span>יוטיוב</span><span>קורסים דיגיטליים</span><span>ועוד</span></div></div>
+      </div>
+      <div class="calc rv">
+        <p class="calc-k">תעשה חשבון: עורך גובה בממוצע 300 ש״ח על סרטון.</p>
+        <p class="calc-eq">10 סרטונים × 300 ש״ח = <b>3,000 ש״ח</b></p>
+        <p class="calc-s">של עבודת עריכה. ביום אחד.</p>
+        <p class="calc-f">והבנייה של המערכת? עולה לך כמו חצי יום כזה.</p>
+      </div>
+      <p class="sys-ex-h rv">ככה נראים סרטונים שיוצאים ממערכת כזו:</p>
+      <div class="sys-ex rv" aria-hidden="true"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/01_capcut.jpg" data-src="../../assets/course/ads/01_capcut-loop.mp4"></video></div><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/04_exploding.jpg" data-src="../../assets/course/ads/04_exploding-loop.mp4"></video></div><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/05_one_take.jpg" data-src="../../assets/course/ads/05_one_take-loop.mp4"></video></div></div>
+    </div>
+
     <p class="voice rv">״ומה אני צריך לעשות?״</p>
     <p class="ans rv">כמעט כלום. אתה שולח לנו תמונות וסרטונים שכבר יש לך. אנחנו בונים, <b>ואתה רק מאשר.</b></p>
 
     <p class="voice rv">״אוקיי, כמה זה עולה?״</p>
-    <p class="ans rv">ובגלל שכבר קנית את הקורס, מה ששילמת עליו יורד לך מהמחיר.</p>
+    <p class="ans rv">ובגלל שכבר קנית את הקורס, יש לך 500 ש״ח הנחה שאף אחד אחר לא מקבל.</p>
 
     <div class="price-wrap rv">
       <div class="price">
         <div class="price-in">
-          <p class="old">המחיר הרגיל: <s>1,897 ש״ח</s></p>
-          <p class="minus">פחות <b>397 ש״ח</b> ששילמת על הקורס</p>
+          <p class="old">המחיר הרגיל: <s>2,000 ש״ח</s></p>
+          <p class="minus">פחות <b>500 ש״ח</b> הנחה בלעדית</p>
           <p class="plabel">רק לרוכשי הקורס, ורק בדף הזה:</p>
-          <p class="amount"><span class="n" data-from="1897">1500</span><span class="cur">ש״ח</span></p>
+          <p class="amount"><span class="n" data-from="2000">1500</span><span class="cur">ש״ח</span></p>
           <p class="cd-l">ההצעה נעלמת בעוד:</p>
           <div class="cd" data-offer-cd dir="ltr">
             <div class="cd-u"><b data-unit="m">05</b><small>דקות</small></div><i class="cd-sep" aria-hidden="true">:</i>
@@ -309,6 +349,18 @@ const CONFIG = {
     setTimeout(tick, 1000 - (left % 1000));
   }
   tick();
+})();
+
+/* short muted loops: load and play only while on screen */
+(function () {
+  const vids = document.querySelectorAll('video.loop[data-src]');
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { if (!v.getAttribute('src')) v.src = v.dataset.src; v.play().catch(() => {}); }
+    else if (!v.paused) v.pause();
+  }), { rootMargin: '250px 0px' });
+  vids.forEach(v => io.observe(v));
 })();
 
 /* Lottie: plays only while visible */
@@ -390,11 +442,19 @@ const CONFIG = {
     onEnter: b => gsap.fromTo(b, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .5, ease: 'power3.out', stagger: .06, overwrite: true })
   });
 
-  /* price drop 1,897 -> 1,500 */
+  /* the "10" counts up when it comes into view */
+  const sysN = document.querySelector('.sys-n');
+  if (sysN) {
+    const c = { v: 0 }; sysN.textContent = '0';
+    ScrollTrigger.create({ trigger: sysN, start: 'top 85%', once: true, onEnter: () =>
+      gsap.to(c, { v: +sysN.dataset.count, duration: 1, ease: 'power2.out', onUpdate: () => { sysN.textContent = String(Math.round(c.v)); } }) });
+  }
+
+  /* price drop 2,000 -> 1,500 */
   const amt = document.querySelector('.amount .n');
   if (amt) {
-    const o = { v: 1897 };
-    amt.textContent = '1897';
+    const o = { v: 2000 };
+    amt.textContent = '2000';
     ScrollTrigger.create({ trigger: amt, start: 'top 80%', once: true, onEnter: () => {
       gsap.to(o, { v: 1500, duration: 1.1, ease: 'power3.inOut', delay: .25, onUpdate: () => { amt.textContent = String(Math.round(o.v)); },
         onComplete: () => gsap.fromTo(amt, { scale: 1.16 }, { scale: 1, duration: .5, ease: 'back.out(2.4)' }) });
