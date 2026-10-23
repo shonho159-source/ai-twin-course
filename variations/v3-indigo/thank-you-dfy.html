@@ -151,7 +151,7 @@ const CONFIG = {
   fbq('init', CONFIG.pixelId); fbq('track', 'PageView');
   let sent = false;
   try { sent = sessionStorage.getItem('da_dfy_purchase_sent') === '1'; sessionStorage.setItem('da_dfy_purchase_sent', '1'); } catch (e) {}
-  if (!sent) fbq('track', 'Purchase', { value: 999, currency: 'ILS', content_name: 'double-agent-dfy' });
+  if (!sent) fbq('track', 'Purchase', { value: 1500, currency: 'ILS', content_name: 'double-agent-dfy' });
 })();
 
 /* Lottie check mark */
