@@ -1,5 +1,6 @@
 """Copy the v3 sales page into the ai360 site under /double-agent/ (thank-you page at /double-agent/thanks/,
-the done-for-you purchase thank-you page at /double-agent/thanks-dfy/).
+the done-for-you purchase thank-you page at /double-agent/thanks-dfy/,
+and the dice-roll test page at /double-agent/dice/ when tools/dice/build.py --live has produced it).
 Only the assets the two pages reference are copied, and relative ../../assets/ paths become /double-agent/assets/.
 Usage: python3 tools/deploy_ai360.py [ai360_repo_path]   (then commit and push the ai360 repo)
 """
@@ -12,7 +13,7 @@ PREFIX = "/double-agent/assets/"
 REF = re.compile(r"\.\./\.\./assets/([^\"')\s]+)")
 
 # Replace only what this script owns; other folders under /double-agent/ (e.g. Peleg's webinar/) stay untouched
-for owned in ("index.html", "thanks", "thanks-dfy", "assets"):
+for owned in ("index.html", "thanks", "thanks-dfy", "dice", "assets"):
     target = DST / owned
     if target.is_dir():
         shutil.rmtree(target)
@@ -20,9 +21,12 @@ for owned in ("index.html", "thanks", "thanks-dfy", "assets"):
         target.unlink()
 (DST / "thanks").mkdir(parents=True, exist_ok=True)
 (DST / "thanks-dfy").mkdir(parents=True, exist_ok=True)
+(DST / "dice").mkdir(parents=True, exist_ok=True)
 
 needed = set()
 PAGES = (("index.html", "index.html"), ("thank-you.html", "thanks/index.html"), ("thank-you-dfy.html", "thanks-dfy/index.html"))
+if (PAGE / "index-dice-live.html").exists():
+    PAGES += (("index-dice-live.html", "dice/index.html"),)
 for src_name, dst_rel in PAGES:
     html = (PAGE / src_name).read_text(encoding="utf-8")
     needed.update(REF.findall(html))

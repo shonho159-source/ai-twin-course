@@ -44,3 +44,10 @@ __pycache__/
 
 # Apps Script source (contains the leads sheet id)
 /apps-script/
+
+# ad creatives: internal strategy + third-party reference ads
+/ads/
+
+# dice-roll discount test: local only (contains the coupon codes)
+/variations/v3-indigo/index-dice*.html
+/tools/dice/

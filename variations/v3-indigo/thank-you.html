@@ -330,7 +330,12 @@ const CONFIG = {
   fbq('init', CONFIG.pixelId); fbq('track', 'PageView');
   let sent = false;
   try { sent = sessionStorage.getItem('da_purchase_sent') === '1'; sessionStorage.setItem('da_purchase_sent', '1'); } catch (e) {}
-  if (!sent) fbq('track', 'Purchase', { value: 397, currency: 'ILS' });
+  /* which funnel sold it: the sales form leaves its page tag in this tab (dice pages end in -dice-<pct|none>) */
+  let lead = {};
+  try { lead = JSON.parse(sessionStorage.getItem('da_lead') || '{}') || {}; } catch (e) {}
+  const dice = /-dice-(\d+|none)$/.exec(lead.page || '');
+  const value = dice ? (dice[1] === 'none' ? 497 : Math.round(497 * (100 - +dice[1]) / 100)) : 397;
+  if (!sent) fbq('track', 'Purchase', { value: value, currency: 'ILS', content_name: lead.page || 'double-agent' });
 })();
 
 /* Offer countdown: 5:00 down to 0, then it starts over. Nothing on the page closes. */
