@@ -13,7 +13,7 @@ PREFIX = "/double-agent/assets/"
 REF = re.compile(r"\.\./\.\./assets/([^\"')\s]+)")
 
 # Replace only what this script owns; other folders under /double-agent/ (e.g. Peleg's webinar/) stay untouched
-for owned in ("index.html", "thanks", "thanks-dfy", "dice", "assets"):
+for owned in ("index.html", "thanks", "thanks-dfy", "dice", "gift", "assets"):
     target = DST / owned
     if target.is_dir():
         shutil.rmtree(target)
@@ -22,11 +22,12 @@ for owned in ("index.html", "thanks", "thanks-dfy", "dice", "assets"):
 (DST / "thanks").mkdir(parents=True, exist_ok=True)
 (DST / "thanks-dfy").mkdir(parents=True, exist_ok=True)
 (DST / "dice").mkdir(parents=True, exist_ok=True)
+(DST / "gift").mkdir(parents=True, exist_ok=True)
 
 needed = set()
 PAGES = (("index.html", "index.html"), ("thank-you.html", "thanks/index.html"), ("thank-you-dfy.html", "thanks-dfy/index.html"))
 if (PAGE / "index-dice-live.html").exists():
-    PAGES += (("index-dice-live.html", "dice/index.html"),)
+    PAGES += (("index-dice-live.html", "dice/index.html"), ("thank-you-gift.html", "gift/index.html"))
 for src_name, dst_rel in PAGES:
     html = (PAGE / src_name).read_text(encoding="utf-8")
     needed.update(REF.findall(html))
