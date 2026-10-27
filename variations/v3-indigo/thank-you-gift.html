@@ -161,9 +161,9 @@ const CONFIG = {
 (function () {
   let lead = {}, dice = null;
   try { lead = JSON.parse(sessionStorage.getItem('da_lead') || '{}') || {}; } catch (e) {}
-  try { dice = JSON.parse(localStorage.getItem('da_dice_v1') || 'null'); } catch (e) {}
-  if (!dice) { const m = document.cookie.match(/(?:^|; )da_dice=([^;]*)/); if (m) { try { dice = JSON.parse(decodeURIComponent(m[1])); } catch (e) {} } }
-  const code = /^מתנה/.test(lead.coupon || '') ? lead.coupon : (dice && dice.claim) || '';
+  try { dice = JSON.parse(localStorage.getItem('da_dice_v2') || 'null'); } catch (e) {}
+  if (!dice) { const m = document.cookie.match(/(?:^|; )da_dice2=([^;]*)/); if (m) { try { dice = JSON.parse(decodeURIComponent(m[1])); } catch (e) {} } }
+  const code = /^מתנה/.test(lead.coupon || '') ? lead.coupon : (dice && dice.key === 'free' && dice.code) || '';
   const box = document.querySelector('[data-gift-code]');
   if (code) box.textContent = code; else box.closest('.gcode').hidden = true;
   const msg = ['היי! זכיתי בקורס סוכן כפול במתנה 🎁'];
