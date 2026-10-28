@@ -746,6 +746,8 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
 .fld span{display:block;font-weight:700;font-size:17px;margin-bottom:8px}
 .fld input{width:100%;height:60px;border-radius:14px;border:2px solid var(--line-2);background:var(--bg);color:var(--ink);font:500 19px/1 'Rubik',system-ui,sans-serif;padding:0 18px;text-align:right;transition:border-color .2s}
 .fld input:focus{outline:none;border-color:var(--lime)}
+/* Chrome autofill paints the field light and keeps our light text: hold the dark field */
+.fld input:-webkit-autofill,.fld input:-webkit-autofill:hover,.fld input:-webkit-autofill:focus{-webkit-text-fill-color:var(--ink);caret-color:var(--ink);-webkit-box-shadow:0 0 0 100px var(--bg) inset;box-shadow:0 0 0 100px var(--bg) inset;transition:background-color 9999s 0s,border-color .2s}
 .form .btn{margin-top:10px}
 .form .fnote{margin-top:16px;text-align:center;font-size:16px;color:var(--dim);display:flex;align-items:center;justify-content:center;gap:10px}
 .lock{position:relative;width:14px;height:11px;border-radius:3px;background:var(--lime);margin-top:5px;flex:none}
@@ -1496,7 +1498,7 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
           <form id="buy-form" class="form" autocomplete="on">
             <p class="form-h">עוד שנייה והכפיל שלך בדרך</p>
             <label class="fld"><span>שם מלא</span><input name="name" type="text" autocomplete="name" required></label>
-            <label class="fld"><span>טלפון</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="0[0-9\-\s]{8,11}" dir="ltr"></label>
+            <label class="fld"><span>טלפון</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="(\+?972|0)[0-9\-\s]{8,13}" dir="ltr"></label>
             <label class="fld"><span>אימייל</span><input name="email" type="email" autocomplete="email" required dir="ltr"></label>
             <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="fbclid"><input type="hidden" name="gclid"><input type="hidden" name="landing_url">
             <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>אני מאשר/ת שקראתי את <a href="/course-privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> ואת <a href="/course-terms" target="_blank" rel="noopener">תנאי השימוש</a> של האתר, ואני מאשר/ת קבלת דיוור ועדכונים מחברת AI360 ועובדיה.</span></label>
@@ -1652,11 +1654,14 @@ const CONFIG = {
   const p = new URLSearchParams(location.search);
   ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].forEach(k => { if (p.get(k)) set(k, p.get(k)); });
   set('landing_url', location.href);
+  /* Chrome autofills +972 50-...: show and send it as 050... */
+  const tidyPhone = v => { const d = String(v || '').replace(/\D/g, ''); return d.indexOf('972') === 0 ? '0' + d.slice(3) : String(v || '').trim(); };
+  form.querySelector('[name=phone]').addEventListener('change', e => { e.target.value = tidyPhone(e.target.value); });
   form.addEventListener('submit', e => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const btn = form.querySelector('button[type="submit"]');
-    const data = { name: val('name'), phone: val('phone'), email: val('email'),
+    const data = { name: val('name'), phone: tidyPhone(val('phone')), email: val('email'),
       utm_source: val('utm_source'), utm_medium: val('utm_medium'), utm_campaign: val('utm_campaign'),
       utm_content: val('utm_content'), utm_term: val('utm_term'), fbclid: val('fbclid'), gclid: val('gclid'),
       landing_url: val('landing_url'), consent: form.querySelector('[name=consent]').checked ? 'yes' : 'no', page: CONFIG.pageTag };

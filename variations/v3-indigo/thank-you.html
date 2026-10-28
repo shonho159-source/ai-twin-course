@@ -157,6 +157,8 @@ section,footer{position:relative;overflow-x:clip}
 .fld span{display:block;font-weight:700;font-size:17px;margin-bottom:8px}
 .fld input{width:100%;height:60px;border-radius:14px;border:2px solid var(--line-2);background:var(--surface);color:var(--ink);font:500 19px/1 'Rubik',system-ui,sans-serif;padding:0 18px;text-align:right;transition:border-color .2s}
 .fld input:focus{outline:none;border-color:var(--lime)}
+/* Chrome autofill paints the field light and keeps our light text: hold the dark field */
+.fld input:-webkit-autofill,.fld input:-webkit-autofill:hover,.fld input:-webkit-autofill:focus{-webkit-text-fill-color:var(--ink);caret-color:var(--ink);-webkit-box-shadow:0 0 0 100px var(--surface) inset;box-shadow:0 0 0 100px var(--surface) inset;transition:background-color 9999s 0s,border-color .2s}
 .consent{display:flex;gap:11px;align-items:flex-start;margin:4px 0 18px;font-size:14.5px;line-height:1.55;color:var(--dim);cursor:pointer;text-align:right}
 .consent input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin:0;border-radius:7px;border:2px solid var(--lilac);background:var(--surface);display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
 .consent input:checked{background:var(--lime);border-color:var(--lime)}
@@ -280,7 +282,7 @@ section,footer{position:relative;overflow-x:clip}
           <form id="up-form" class="form" autocomplete="on">
             <p class="form-h">משאירים פרטים וממשיכים לתשלום</p>
             <label class="fld"><span>שם מלא</span><input name="name" type="text" autocomplete="name" required></label>
-            <label class="fld"><span>טלפון</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="0[0-9\-\s]{8,11}" dir="ltr"></label>
+            <label class="fld"><span>טלפון</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="(\+?972|0)[0-9\-\s]{8,13}" dir="ltr"></label>
             <label class="fld"><span>אימייל</span><input name="email" type="email" autocomplete="email" required dir="ltr"></label>
             <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="fbclid"><input type="hidden" name="gclid"><input type="hidden" name="landing_url">
             <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>אני מאשר/ת שקראתי את <a href="/course-privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> ואת <a href="/course-terms" target="_blank" rel="noopener">תנאי השימוש</a> של האתר, ואני מאשר/ת קבלת דיוור ועדכונים מחברת AI360 ועובדיה.</span></label>
@@ -334,7 +336,8 @@ const CONFIG = {
   let lead = {};
   try { lead = JSON.parse(sessionStorage.getItem('da_lead') || '{}') || {}; } catch (e) {}
   const dice = /-dice-(\d+|none)$/.exec(lead.page || '');
-  const value = dice ? (dice[1] === 'none' ? 497 : Math.round(497 * (100 - +dice[1]) / 100)) : 397;
+  const DICE_PRICE = +lead.list_price || 497;   // the dice page sends its own price (497 before list_price existed)
+  const value = dice ? (dice[1] === 'none' ? DICE_PRICE : Math.round(DICE_PRICE * (100 - +dice[1]) / 100)) : 397;
   if (!sent) fbq('track', 'Purchase', { value: value, currency: 'ILS', content_name: lead.page || 'double-agent' });
 })();
 
@@ -393,6 +396,10 @@ const CONFIG = {
   const p = new URLSearchParams(location.search);
   KEYS.forEach(k => { const f = field(k), v = lead[k] || p.get(k) || ''; if (f && v) f.value = v; });
   if (!val('landing_url')) field('landing_url').value = location.href;
+  /* Chrome autofills +972 50-...: show and send it as 050... */
+  const tidyPhone = v => { const d = String(v || '').replace(/\D/g, ''); return d.indexOf('972') === 0 ? '0' + d.slice(3) : String(v || '').trim(); };
+  field('phone').value = tidyPhone(val('phone'));
+  field('phone').addEventListener('change', e => { e.target.value = tidyPhone(e.target.value); });
   form.addEventListener('submit', e => {
     e.preventDefault();
     if (!form.reportValidity()) return;
