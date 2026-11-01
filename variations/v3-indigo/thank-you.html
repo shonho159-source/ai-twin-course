@@ -255,7 +255,7 @@ section,footer{position:relative;overflow-x:clip}
         <p class="calc-k">תעשה חשבון: עורך גובה בממוצע 300 ש״ח על סרטון.</p>
         <p class="calc-eq">10 סרטונים × 300 ש״ח = <b>3,000 ש״ח</b></p>
         <p class="calc-s">של עבודת עריכה. ביום אחד.</p>
-        <p class="calc-f">והבנייה של המערכת? עולה לך כמו חצי יום כזה.</p>
+        <p class="calc-f">והבנייה של המערכת? עולה לך פחות מיום אחד כזה.</p>
       </div>
       <p class="sys-ex-h rv">ככה נראים סרטונים שיוצאים ממערכת כזו:</p>
       <div class="sys-ex rv" aria-hidden="true"><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/01_capcut.jpg" data-src="../../assets/course/ads/01_capcut-loop.mp4"></video></div><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/04_exploding.jpg" data-src="../../assets/course/ads/04_exploding-loop.mp4"></video></div><div class="ph"><video class="loop" muted playsinline loop preload="none" poster="../../assets/course/ads/05_one_take.jpg" data-src="../../assets/course/ads/05_one_take-loop.mp4"></video></div></div>
@@ -270,10 +270,10 @@ section,footer{position:relative;overflow-x:clip}
     <div class="price-wrap rv">
       <div class="price">
         <div class="price-in">
-          <p class="old">המחיר הרגיל: <s>2,000 ש״ח</s></p>
+          <p class="old">המחיר הרגיל: <s>2,700 ש״ח</s></p>
           <p class="minus">פחות <b>500 ש״ח</b> הנחה בלעדית</p>
           <p class="plabel">רק לרוכשי הקורס, ורק בדף הזה:</p>
-          <p class="amount"><span class="n" data-from="2000">1500</span><span class="cur">ש״ח</span></p>
+          <p class="amount"><span class="n" data-from="2700">2200</span><span class="cur">ש״ח</span></p>
           <p class="cd-l">ההצעה נעלמת בעוד:</p>
           <div class="cd" data-offer-cd dir="ltr">
             <div class="cd-u"><b data-unit="m">05</b><small>דקות</small></div><i class="cd-sep" aria-hidden="true">:</i>
@@ -318,7 +318,7 @@ section,footer{position:relative;overflow-x:clip}
 const CONFIG = {
   pageTag: 'double-agent-upsell',             // "מקור" column in the leads sheet
   offerMinutes: 5,                            // the countdown starts over every 5 minutes; the offer itself never closes
-  paymentUrl: 'https://secure.cardcom.solutions/EA/EA5/Np8HeONrUuVdv4ZZUNnGA/PaymentSP',   // Cardcom page for the done-for-you build (1,500); name/email/phone prefilled
+  paymentUrl: 'https://secure.cardcom.solutions/EA/EA5/Np8HeONrUuVdv4ZZUNnGA/PaymentSP',   // Cardcom page for the done-for-you build (2,200); name/email/phone prefilled
   sheetUrl: 'https://script.google.com/macros/s/AKfycbw-KfL9r8Hk-uJERuFSiTIYxVZp5XnCXzE6-6pjMX_q3shjTgJdmVlgjkhob_G2Nxk4/exec',
   pixelId: '732211489617687',
   pixelEnabled: true,
@@ -413,10 +413,10 @@ const CONFIG = {
       const ok = navigator.sendBeacon && navigator.sendBeacon(CONFIG.sheetUrl, new Blob([body], { type: 'text/plain;charset=UTF-8' }));
       if (!ok) fetch(CONFIG.sheetUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body, keepalive: true }).catch(() => {});
     }
-    fbq('trackCustom', 'UpsellLead', { value: 1500, currency: 'ILS' });
+    fbq('trackCustom', 'UpsellLead', { value: 2200, currency: 'ILS' });
     if (!isUrl(CONFIG.paymentUrl)) { form.hidden = true; document.querySelector('[data-sent]').hidden = false; return; }
     if (btn) { btn.disabled = true; btn.textContent = 'מעביר לתשלום מאובטח...'; }
-    fbq('track', 'InitiateCheckout', { value: 1500, currency: 'ILS' });
+    fbq('track', 'InitiateCheckout', { value: 2200, currency: 'ILS' });
     const url = CONFIG.paymentUrl + '?subscribers_name=' + encodeURIComponent(data.name) + '&subscribers_email=' + encodeURIComponent(data.email) +
       '&subscribers_phone=' + encodeURIComponent(data.phone);
     setTimeout(() => { location.href = url; }, 400);
@@ -462,13 +462,13 @@ const CONFIG = {
       gsap.to(c, { v: +sysN.dataset.count, duration: 1, ease: 'power2.out', onUpdate: () => { sysN.textContent = String(Math.round(c.v)); } }) });
   }
 
-  /* price drop 2,000 -> 1,500 */
+  /* price drop 2,700 -> 2,200 */
   const amt = document.querySelector('.amount .n');
   if (amt) {
-    const o = { v: 2000 };
-    amt.textContent = '2000';
+    const o = { v: 2700 };
+    amt.textContent = '2700';
     ScrollTrigger.create({ trigger: amt, start: 'top 80%', once: true, onEnter: () => {
-      gsap.to(o, { v: 1500, duration: 1.1, ease: 'power3.inOut', delay: .25, onUpdate: () => { amt.textContent = String(Math.round(o.v)); },
+      gsap.to(o, { v: 2200, duration: 1.1, ease: 'power3.inOut', delay: .25, onUpdate: () => { amt.textContent = String(Math.round(o.v)); },
         onComplete: () => gsap.fromTo(amt, { scale: 1.16 }, { scale: 1, duration: .5, ease: 'back.out(2.4)' }) });
     } });
   }
