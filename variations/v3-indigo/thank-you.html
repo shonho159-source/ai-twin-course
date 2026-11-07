@@ -400,8 +400,19 @@ const CONFIG = {
   const tidyPhone = v => { const d = String(v || '').replace(/\D/g, ''); return d.indexOf('972') === 0 ? '0' + d.slice(3) : String(v || '').trim(); };
   field('phone').value = tidyPhone(val('phone'));
   field('phone').addEventListener('change', e => { e.target.value = tidyPhone(e.target.value); });
+  /* Some phone keyboards slip invisible direction marks (RLM/LRM) or odd spaces into the fields, and the browser then rejects
+     the email with a message about a symbol nobody can see: clean the fields first, then validate ourselves */
+  const INVISIBLE = /[\u00AD\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF]/g;
+  const tidyFields = () => form.querySelectorAll('input[type=text], input[type=tel], input[type=email]').forEach(f => {
+    let v = f.value.replace(INVISIBLE, '').replace(/\s+/g, ' ').trim();
+    if (f.type === 'email') v = v.replace(/\s/g, '');
+    if (f.name === 'phone') v = tidyPhone(v);
+    if (v !== f.value) f.value = v;
+  });
+  form.noValidate = true;
   form.addEventListener('submit', e => {
     e.preventDefault();
+    tidyFields();
     if (!form.reportValidity()) return;
     const btn = form.querySelector('button[type="submit"]');
     const data = {};
