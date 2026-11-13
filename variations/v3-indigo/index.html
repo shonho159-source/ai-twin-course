@@ -1006,6 +1006,35 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
   .sgrid{grid-template-columns:repeat(6,1fr);gap:16px}
   .lsn{grid-template-columns:1fr 1fr;gap:14px 18px}
 }
+
+/* ===== student results ===== */
+.sres{background:var(--bg);padding:var(--sec) 0}
+.sres .lead{margin:18px auto 0;max-width:36ch;text-wrap:balance}
+.sres .vrow{margin-top:40px}
+@media (min-width:960px){
+  .sres .vrow{grid-template-columns:repeat(5,1fr);gap:22px}
+  .sres .vc:nth-child(n){margin-top:0}
+  .sres .vc:nth-child(even){margin-top:56px}
+}
+
+/* ===== S10 WhatsApp group wall: bubbles keep one text size (--w = crop width, 472 = widest) ===== */
+.chat{max-width:1000px;margin-inline:auto;border-radius:22px;overflow:hidden;background:#0A0A0A;border:1px solid rgba(169,155,255,.35);box-shadow:0 24px 48px -28px rgba(0,0,0,.7)}
+.chat-h{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#1B1C1C;color:#E9EDEF}
+.chat-h i{width:38px;height:38px;border-radius:50%;background:#0C0827 url(../../assets/logo/wa-avatar.webp) center/cover;flex:none}
+.chat-h b{display:block;font-size:17px;line-height:1.3}
+.chat-h span{display:block;font-size:14px;color:#8E9A9F;line-height:1.3}
+.chat-b{padding:14px 12px 4px}
+.chat-m{columns:1;column-gap:16px}
+.chat-b img{width:calc(var(--w) / 472 * 100%);height:auto;margin:0 auto 10px 0;border-radius:6px}
+.chat-more{display:block;width:100%;padding:15px 16px;background:#1B1C1C;color:var(--lime);font-weight:700;font-size:17px;border-top:1px solid #2A2B2B}
+.js .chat:not(.open) .chat-b{max-height:640px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 75%,transparent);mask-image:linear-gradient(#000 75%,transparent)}
+.chat.open .chat-more,html:not(.js) .chat-more{display:none}
+@media (min-width:640px){.chat-b{padding:18px 18px 8px}.chat-m{columns:2}}
+@media (min-width:960px){
+  .chat-m{columns:3}
+  .js .chat:not(.open) .chat-b{max-height:none;overflow:visible;-webkit-mask-image:none;mask-image:none}
+  .chat-more{display:none}
+}
 </style>
 </head>
 <body>
@@ -1283,6 +1312,21 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
   </div>
 </section>
 
+<!-- student results: videos students made in the course (unlisted Vimeo: data-h is the privacy hash) -->
+<section id="results" class="sres">
+  <div class="wrap">
+    <h2 class="h2"><span class="ln m">תוצאות של תלמידים</span> <span class="ln m lime">שלמדו בסוכן כפול</span></h2>
+    <p class="lead rv">את כל הסרטונים פה יצרו תלמידים שלנו, עם מה שלמדו בקורס. תלחץ ותשמע.</p>
+    <div class="vrow">
+      <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1246323324" data-h="9dd8aaf086" data-title="תוצאה של תלמיד 1"><img src="../../assets/results/1246323324.webp" alt="" width="540" height="960" loading="lazy"><span class="snd-tag">🔊 עם סאונד</span><button class="play" type="button" aria-label="ניגון: תוצאה של תלמיד 1"></button></div></div></figure>
+      <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1246323323" data-h="264a988a4b" data-title="תוצאה של תלמיד 2"><img src="../../assets/results/1246323323.webp" alt="" width="540" height="960" loading="lazy"><span class="snd-tag">🔊 עם סאונד</span><button class="play" type="button" aria-label="ניגון: תוצאה של תלמיד 2"></button></div></div></figure>
+      <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1246339134" data-title="תוצאה של תלמיד 3"><img src="../../assets/results/1246339134.webp" alt="" width="540" height="960" loading="lazy"><span class="snd-tag">🔊 עם סאונד</span><button class="play" type="button" aria-label="ניגון: תוצאה של תלמיד 3"></button></div></div></figure>
+      <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1246323325" data-h="253ad7abb7" data-title="תוצאה של תלמיד 4"><img src="../../assets/results/1246323325.webp" alt="" width="540" height="960" loading="lazy"><span class="snd-tag">🔊 עם סאונד</span><button class="play" type="button" aria-label="ניגון: תוצאה של תלמיד 4"></button></div></div></figure>
+      <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1246323328" data-h="7918e4c492" data-title="תוצאה של תלמיד 5"><img src="../../assets/results/1246323328.webp" alt="" width="540" height="960" loading="lazy"><span class="snd-tag">🔊 עם סאונד</span><button class="play" type="button" aria-label="ניגון: תוצאה של תלמיד 5"></button></div></div></figure>
+    </div>
+  </div>
+</section>
+
 <!-- S10 -->
 <section id="s10" class="s10">
   <div class="wrap">
@@ -1299,6 +1343,34 @@ section .lead,.s7-head,.s12-head,.s11-head{text-align:center;align-items:center}
       <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1180488495" data-title="עמליה רם"><img src="../../assets/testimonials/video-posters/1180488495.webp" alt="" width="360" height="641" loading="lazy"><button class="play" type="button" aria-label="ניגון: עמליה רם"></button></div><figcaption class="who"><b>עמליה רם</b><span>בעלים של חברת ייעוץ משכנתאות</span></figcaption></div></figure>
       <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1186385186" data-title="דור כהן"><img src="../../assets/testimonials/video-posters/1186385186.webp" alt="" width="360" height="641" loading="lazy"><button class="play" type="button" aria-label="ניגון: דור כהן"></button></div><figcaption class="who"><b>דור כהן</b><span>מנכ״ל, פורמה פיננסים</span></figcaption></div></figure>
       <figure class="vc pl hv rv"><div class="card"><div class="vmedia" data-vimeo="1186385578" data-title="אריק רביבו"><img src="../../assets/testimonials/video-posters/1186385578.webp" alt="" width="360" height="641" loading="lazy"><button class="play" type="button" aria-label="ניגון: אריק רביבו"></button></div><figcaption class="who"><b>אריק רביבו</b><span>בעלים, אמיטקס</span></figcaption></div></figure>
+    </div>
+
+    <p class="lbl rv">מהקבוצה של התלמידים בקורס</p>
+    <div class="chat rv">
+      <div class="chat-h"><i aria-hidden="true"></i><div><b>סוכן כפול · התלמידים</b><span>הודעות אמיתיות מהקבוצה</span></div></div>
+      <div class="chat-b"><div class="chat-m">
+        <img src="../../assets/wa/01-first-video.png" style="--w:418" width="418" height="220" loading="lazy" alt="הודעה בקבוצה: הסרטון הראשון שלי (אתמול פתחתי את הקורס). אני יודע שיש עוד מלא לשפר אבל זה מדהים כשלב ראשוני לדעתי">
+        <img src="../../assets/wa/02-work-inquiries.png" style="--w:472" width="472" height="219" loading="lazy" alt="הודעה בקבוצה: אנחנו עשינו כזה. מיועד לממומן וגרסה ראשונה אבל וואלה הביאה כבר עבודה ופניות. השבוע נשכפל עובד שיראה טוב יותר">
+        <img src="../../assets/wa/03-editing-cost.png" style="--w:421" width="421" height="189" loading="lazy" alt="הודעה בקבוצה: 5 שנים אחורה אני משלם לעורך על חבילת 10 סרטונים 3500 ש״ח. זה מטורף וזה רק שלב ראשוני">
+        <img src="../../assets/wa/client-project.png" style="--w:472" width="472" height="421" loading="lazy" alt="הודעה בקבוצה: הסרטון שיצרתי עם ההדרכה עשה לי ממש טוב, אלופים. איך הייתם מתמחרים קורס דיגיטלי של 70 דקות? הלקוחה רוצה אווטאר שלה ועיצובים לכל שקף">
+        <img src="../../assets/wa/06-detailed-feedback.png" style="--w:472" width="472" height="505" loading="lazy" alt="תגובה בקבוצה לכפיל של תלמיד: נראה מעולה. אהבתי שזה מתחיל בדמות מיוחדת שגרמה לי לרצות להבין מה זה, וזה נשמע מאוד לא רובוטי">
+        <img src="../../assets/wa/05-looks-real.png" style="--w:282" width="282" height="120" loading="lazy" alt="הודעה בקבוצה: וואו זה נראה כל כך אמיתי">
+        <img src="../../assets/wa/07-excellent.png" style="--w:472" width="472" height="333" loading="lazy" alt="תגובה בקבוצה לסרטון של תלמיד: נראה מעולה ונשמע מצוין! תנסה לעשות מהירות פי 1.1">
+        <img src="../../assets/wa/amazing.png" style="--w:472" width="472" height="184" loading="lazy" alt="הודעה בקבוצה: זה מדהים, אני עוד מעט אשלח מה עשיתי">
+        <img src="../../assets/wa/more-engaging.png" style="--w:472" width="472" height="266" loading="lazy" alt="תגובה בקבוצה לסרטון של תלמידה: ממש מושך ומעניין יותר מהראשון">
+        <img src="../../assets/wa/08-strong.png" style="--w:404" width="404" height="266" loading="lazy" alt="תגובה בקבוצה לסרטון של תלמידה: חזק ביותר">
+        <img src="../../assets/wa/fomo.png" style="--w:424" width="424" height="159" loading="lazy" alt="הודעה בקבוצה: אני רק בסופש מתפנה ללמוד ואתם גורמים לי לפומו">
+        <img src="../../assets/wa/well-done.png" style="--w:386" width="386" height="115" loading="lazy" alt="הודעה בקבוצה: ממש יפה כל הכבוד אחי, תצליח">
+      </div></div>
+      <button class="chat-more" type="button">תראה עוד הודעות</button>
+    </div>
+
+    <p class="lbl rv">ומה שמגיע אלינו לוואטסאפ</p>
+    <div class="wa-row">
+      <figure class="wa-ph rv"><div class="wa-scr"><img src="../../assets/wa/mordechai.jpg" alt="הודעה ממרדכי: שמע קורס מטורף, אין דברים כאלו. אתה יכול להשתמש בזה להמלצה" loading="lazy"></div></figure>
+      <figure class="wa-ph rv"><div class="wa-scr"><img src="../../assets/wa/first-deal.jpg" alt="הודעה מתלמיד: אני בדרך לעסקה ראשונה" loading="lazy"></div></figure>
+      <figure class="wa-ph rv"><div class="wa-scr"><img src="../../assets/wa/content.jpg" alt="הודעה מתלמיד: אתה נותן תוכן ששווה מלא כסף" loading="lazy"></div></figure>
+      <figure class="wa-ph rv"><div class="wa-scr"><img src="../../assets/wa/reservist.jpg" alt="הודעה מתלמיד במילואים: הקורסים מדהימים" loading="lazy"></div></figure>
     </div>
   </div>
 </section>
@@ -1796,9 +1868,11 @@ const CONFIG = {
   $$('.vmedia[data-vimeo]').forEach(m => {
     m.addEventListener('click', () => {
       if (m.querySelector('iframe')) return;
-      m.innerHTML = '<iframe src="https://player.vimeo.com/video/' + m.dataset.vimeo + '?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + (m.dataset.title || '') + '"></iframe>';
+      m.innerHTML = '<iframe src="https://player.vimeo.com/video/' + m.dataset.vimeo + '?' + (m.dataset.h ? 'h=' + m.dataset.h + '&' : '') + 'autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + (m.dataset.title || '') + '"></iframe>';
     });
   });
+  /* S10 WhatsApp wall: folded on small screens until tapped */
+  $$('.chat-more').forEach(b => b.addEventListener('click', () => b.closest('.chat').classList.add('open')));
 
   /* S2: the double's video. Loads near the viewport, plays muted, lights the tiles in sync */
   (function () {
